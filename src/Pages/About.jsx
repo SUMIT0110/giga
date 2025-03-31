@@ -50,9 +50,8 @@ const About = () => {
         </p>
 
         <div className="text-center mt-10">
-          <p className="text-lg mb-2">📩 <span className="font-bold">Get in Touch:</span> contact@giganxt.me</p>
-          <p className="text-lg mb-2">🌐 <span className="font-bold">Website:</span> www.giganxt.me</p>
-          <p className="text-lg mb-2">📞 <span className="font-bold">Call Us:</span> +91 9545258741</p>
+          <p className="text-lg mb-2">📩 <span className="font-bold">Get in Touch:</span> contact@giganxt.com</p>
+          <p className="text-lg mb-2">🌐 <span className="font-bold">Website:</span> www.giganxt.com</p>
         </div>
       </div>
     </div>

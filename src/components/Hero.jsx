@@ -37,7 +37,7 @@ const Hero = () => {
             Innovating Web, App, Software, and AI Solutions to 
             Empower Businesses for the Digital Future.
           </p>
-          <Button href="mailto:contact@giganxt.me" white>
+          <Button href="mailto:contact@giganxt.com" white>
             Contact Us
           </Button>
         </div>

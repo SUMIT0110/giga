@@ -34,7 +34,7 @@ const ChatBot = () => {
   // Additional company information for the chatbot
   const companyInfo = {
     contact: {
-      email: "contact@giganxt.me",
+      email: "contact@giganxt.com",
       location: "Chhatrapati Sambhaji Nagar, Maharashtra, India"
     },
     services: [
@@ -121,7 +121,7 @@ const ChatBot = () => {
 
     // Check for human support request
     if (lowercaseInput.includes('human') || lowercaseInput.includes('person') || lowercaseInput.includes('agent') || lowercaseInput.includes('support team')) {
-      return "I'd be happy to connect you with our support team. Please email us at contact@giganxt.me with your query, and someone will get back to you shortly.";
+      return "I'd be happy to connect you with our support team. Please email us at contact@giganxt.com with your query, and someone will get back to you shortly.";
     }
     
     // Check against FAQ data
@@ -136,7 +136,7 @@ const ChatBot = () => {
     }
     
     // Default response if no specific match is found
-    return "Thank you for your message. For more detailed information, please contact our team at contact@giganxt.me or explore our website further.";
+    return "Thank you for your message. For more detailed information, please contact our team at contact@giganxt.com or explore our website further.";
   };
 
   return (

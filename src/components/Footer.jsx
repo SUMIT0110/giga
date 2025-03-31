@@ -11,18 +11,22 @@ const Footer = () => {
     <Section crosses colorfulBorder className="!py-10 w-full px-6 md:px-16" id="footer">
       <div className={`${styles.flexCenter} ${styles.paddingY} flex-col w-full`}>
         <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
-          <div className="flex-1 flex flex-col justify-start mr-10">
+          <div className="flex-1 flex flex-col justify-start mr-10"
+          >
             <img
               src={logo}
               alt="Giganxt"
-              className="w-[250px] h-[100px] object-contain"
+              className="w-[250px] h-[100px] object-contain " 
+              
             />
             <p className={`${styles.paragraph} ml-4 mt-4 max-w-[312px]`}>
               Empower Your Business With Giganxt Solution.
             </p>
           </div>
 
-          <div className="flex-[1.5] w-full flex flex-wrap justify-between md:mt-0 mt-10">
+          <div className="flex-[1.5] w-full flex flex-wrap justify-start md:gap-20 gap-[100px] md:mt-0 mt-10">
+
+
             {/* Services Column */}
 
             {/* Company Column */}
@@ -32,10 +36,25 @@ const Footer = () => {
               </h4>
               <ul className="list-none mt-4">
                 <li className="font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer mb-4">
-                  <Link to="/about" onClick={() => window.scrollTo(0, 0)}>About Us</Link> {/* Use Link for navigation with scroll to top */}
+                  <Link to="/about" onClick={() => window.scrollTo(0, 0)}>About Us</Link>
+                </li>
+      
+              </ul>
+            </div>
+            <div className="flex flex-col ss:my-0 my-4 min-w-[150px]">
+              <h4 className="font-bold text-[20px] leading-[27px] text-white">
+                Legal & Policies
+              </h4>
+              <ul className="list-none mt-4">
+                <li className="font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer mb-4">
+                  <Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)}>Privacy Policy</Link> {/* Use Link for navigation with scroll to top */}
+                </li>
+                <li className="font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer mb-4">
+                  <Link to="/terms-conditions" onClick={() => window.scrollTo(0, 0)}>Terms & Conditions</Link> {/* Use Link for navigation with scroll to top */}
                 </li>
               </ul>
             </div>
+            
 
             {/* Contact Column */}
             <div className="flex flex-col ss:my-0 my-4 min-w-[150px]">
@@ -43,11 +62,11 @@ const Footer = () => {
                 Contact Us
               </h4>
               <ul className="list-none mt-4">
-                <li className="font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer mb-4">
-                  contact@giganxt.me
+                <li className="font-normal text-[16px] leading-[24px] text-dimWhite  mb-4">
+                  contact@giganxt.com
                 </li>
-                <li className="font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer">
-                  Chhatrapati Sambhaji Nagar, Maharashtra, India
+                <li className="font-normal text-[16px] leading-[24px] text-dimWhite ">
+                  Chhatrapati Sambhaji Nagar,<br/> Maharashtra, India
                 </li>
               </ul>
             </div>

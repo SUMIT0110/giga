@@ -14,8 +14,8 @@ const SEO = ({
   const siteTitle = title ? `${title} | GigaNXT Solutions` : 'GigaNXT Solutions - Web, App, Software & AI Development';
   const siteDescription = description || 'Innovating Web, App, Software, and AI Solutions to Empower Businesses for the Digital Future.';
   const siteKeywords = keywords || 'web development, app development, software solutions, AI development, digital marketing, IT services';
-  const siteImage = image || 'https://giganxt.me/assets/newlogo-removebg-preview.png';
-  const siteUrl = url || 'https://giganxt.me';
+  const siteImage = image || 'https://giganxt.com/assets/newlogo-removebg-preview.png';
+  const siteUrl = url || 'https://giganxt.com';
   const siteCanonical = canonical || siteUrl;
   const siteType = type || 'website';
 

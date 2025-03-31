@@ -95,40 +95,58 @@ import {
 
 export const Work = [
   {
-    imgSrc: project1,
-    title: 'Full stack music app',
-    tags: ['API', 'MVC', 'Development'],
-    projectLink: '#'
+    imgSrc: project5,
+    title: "E-Commerce Website",
+    client: "ShopNow",
+    category: "E-Commerce",
+    tags: ["eCommerce", "Development"],
+    techStack: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
+    projectLink: "https://giganxtecomm.netlify.app/",
   },
   {
     imgSrc: project2,
-    title: 'Free stock photo app',
-    tags: ['API', 'SPA'],
-    projectLink: '#'
+    title: "Tours & Travels Website",
+    client: "Elite Holidays",
+    category: "Business Website",
+    tags: ["Travel", "Booking", "Web App"],
+    techStack: ["TypeScript", "React", "MongoDB", "Node.js", "Express"],
+    projectLink: "#",
   },
   {
     imgSrc: project3,
-    title: 'Recipe app',
-    tags: ['Development', 'API'],
-    projectLink: '#'
+    title: "Recipe App",
+    client: "Foodie",
+    category: "Web Application",
+    tags: ["Development", "API"],
+    techStack: ["Next.js", "Firebase", "Tailwind CSS"],
+    projectLink: "#",
   },
   {
     imgSrc: project4,
-    title: 'Real state website',
-    tags: ['Web-design', 'Development'],
-    projectLink: '#'
+    title: "Real Estate Website",
+    client: "Elite Realty",
+    category: "Real Estate",
+    tags: ["Web Design", "Development"],
+    techStack: ["React", "Sanity CMS", "GraphQL"],
+    projectLink: "#",
   },
   {
-    imgSrc: project5,
-    title: 'eCommerce website',
-    tags: ['eCommerce', 'Development'],
-    projectLink: '#'
+    imgSrc: project1, // ✅ Correct usage
+    title: "Full Stack Music App",
+    client: "XYZ Music",
+    category: "Web Application",
+    tags: ["API", "MVC", "Development"],
+    techStack: ["React", "Node.js", "MongoDB", "Express"],
+    projectLink: "https://giganxtecomm.netlify.app/",
   },
   {
     imgSrc: project6,
-    title: 'vCard Personal portfolio',
-    tags: ['Web-design', 'Development'],
-    projectLink: '#'
+    title: "vCard Personal Portfolio",
+    client: "Freelancer",
+    category: "Portfolio",
+    tags: ["Web Design", "Development"],
+    techStack: ["React", "Framer Motion", "Styled Components"],
+    projectLink: "#",
   },
 ];
 
@@ -139,20 +157,20 @@ export const navigation = [
   {
     id: "0",
     title: "Home",
-    url: "#hero",
+    url: "/",
   },
   {
-    id: "1",
+    id: "2",
     title: "Services",
     url: "#Services",
   },
   {
-    id: "2",
+    id: "3",
     title: "Project",
-    url: "#roadmap",
+    url: "#projects",
   },
   {
-    id: "3",
+    id: "4",
     title: "Contact",
     url: "#footer",
   },
@@ -168,9 +186,9 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+  "Web Development",
+  "App Development",
+  "AI Solutions",
 ];
 
 export const brainwaveServicesIcons = [
@@ -340,7 +358,7 @@ export const benefits = [
     text: "Create modern, responsive, and SEO-friendly websites tailored to businesses and personal brands.",
     backgroundUrl: benefitCard1,
     iconUrl: benefitImage6,
-    imageUrl: service3,
+    imageUrl: "src/assets/services/service-6.png",
     head_1: "Web Development Process",
     process: [
       { stage: "Requirement Gathering & Analysis", description: "Understand project scope, goals, and target audience." },
@@ -360,7 +378,7 @@ export const benefits = [
     text: "Build high-performance mobile and web apps with intuitive UI/UX and cross-platform compatibility.",
     backgroundUrl: benefitCard2,
     iconUrl: benefitImage7,
-    imageUrl: benefitImage2,
+    imageUrl: "src/assets/services/service-5.png",
     light: true,
     head_1: "App Development Process",
     process: [
@@ -381,7 +399,7 @@ export const benefits = [
     text: "Extract actionable insights from data using predictive analytics, visualization, and business intelligence.",
     backgroundUrl: benefitCard3,
     iconUrl: benefitImage8,
-    imageUrl: service3,
+    imageUrl: "src/assets/services/service-4.png",
     head_1: "Data Science & Analytics Process",
     process: [
       { stage: "Problem Definition", description: "Identify business problems and determine how data can solve them." },
@@ -399,9 +417,9 @@ export const benefits = [
     id: "3",
     title: "AI & Machine Learning Solutions",
     text: "Develop AI-powered solutions like recommendation systems, fraud detection, and automation models.",
-    backgroundUrl: benefitCard4,
+    backgroundUrl: benefitCard2,
     iconUrl: benefitImage9,
-    imageUrl: benefitImage2,
+    imageUrl: "src/assets/services/service-9.png",
     light: true,
     head_1: "AI & Machine Learning Process",
     process: [
@@ -420,7 +438,7 @@ export const benefits = [
     text: "Automate customer interactions with intelligent chatbots and AI-driven virtual assistants for various industries.",
     backgroundUrl: benefitCard5,
     iconUrl: benefitImage10,
-    imageUrl: service3,
+    imageUrl: "src/assets/services/service-8.png",
     head_1: "Chatbot Development Process",
     process: [
       { stage: "Requirement Analysis", description: "Identify the needs and goals of the chatbot or virtual assistant." },
@@ -438,7 +456,7 @@ export const benefits = [
     text: "Boost online presence with SEO, social media marketing, paid ads, content creation, and branding strategies.",
     backgroundUrl: benefitCard6,
     iconUrl: benefitImage11,
-    imageUrl: benefitImage2,
+    imageUrl: "src/assets/services/service-7.png",
     head_1: "Digital Marketing Process",
     process: [
       { stage: "Market Research", description: "Identify target audience, competitors, and industry trends." },
@@ -629,6 +647,128 @@ export const socialMedia = [
     icon: icon_link,
     link: "https://www.linkedin.com/company/giganxt-solutions",
   },
+];
+
+// Privacy Policy Data
+export const privacyData = [
+  {
+    title: "Introduction",
+    content: "At Giganxt Solutions, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site."
+  },
+  {
+    title: "Information We Collect",
+    content: "We may collect personal identification information from users in various ways, including, but not limited to, when users visit our site, register on the site, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our site.",
+    list: [
+      "Personal Information: Name, email address, phone number, billing address, and payment information when you purchase our services.",
+      "Usage Data: Information on how you use our website, including IP address, browser type, pages visited, time spent on pages, and other diagnostic data.",
+      "Cookies and Tracking Data: We use cookies and similar tracking technologies to track activity on our website and hold certain information."
+    ]
+  },
+  {
+    title: "How We Use Your Information",
+    content: "We may use the information we collect from you for the following purposes:",
+    list: [
+      "To provide and maintain our services",
+      "To notify you about changes to our services",
+      "To allow you to participate in interactive features of our website",
+      "To provide customer support",
+      "To gather analysis or valuable information so that we can improve our services",
+      "To monitor the usage of our services",
+      "To detect, prevent and address technical issues",
+      "To fulfill any other purpose for which you provide it"
+    ]
+  },
+  {
+    title: "Data Security",
+    content: "We implement appropriate data collection, storage, processing practices, and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our site. However, please be aware that no method of transmission over the internet or method of electronic storage is 100% secure."
+  },
+  {
+    title: "Third-Party Services",
+    content: "We may employ third-party companies and individuals to facilitate our services, provide services on our behalf, perform service-related services, or assist us in analyzing how our services are used. These third parties have access to your personal information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose."
+  },
+  {
+    title: "Your Data Protection Rights",
+    content: "Depending on your location, you may have certain rights regarding your personal information, such as:",
+    list: [
+      "The right to access, update or delete the information we have on you",
+      "The right of rectification - the right to have your information corrected if it is inaccurate or incomplete",
+      "The right to object - the right to object to our processing of your personal data",
+      "The right of restriction - the right to request that we restrict the processing of your personal information",
+      "The right to data portability - the right to be provided with a copy of your personal data in a structured, machine-readable format",
+      "The right to withdraw consent - the right to withdraw your consent at any time where we relied on your consent to process your personal information"
+    ]
+  },
+  {
+    title: "Children's Privacy",
+    content: "Our services are not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us."
+  },
+  {
+    title: "Changes to This Privacy Policy",
+    content: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date. You are advised to review this Privacy Policy periodically for any changes."
+  },
+  {
+    title: "Contact Us",
+    content: "If you have any questions about this Privacy Policy, please contact us at contact@giganxt.com."
+  }
+];
+
+// Terms and Conditions Data
+export const termsData = [
+  {
+    title: "Introduction",
+    content: "These Terms and Conditions govern your use of the Giganxt Solutions website and services. By accessing our website or using our services, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the website or use our services."
+  },
+  {
+    title: "Use License",
+    content: "Permission is granted to temporarily download one copy of the materials on Giganxt Solutions's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+    list: [
+      "Modify or copy the materials",
+      "Use the materials for any commercial purpose or for any public display",
+      "Attempt to decompile or reverse engineer any software contained on Giganxt Solutions's website",
+      "Remove any copyright or other proprietary notations from the materials",
+      "Transfer the materials to another person or 'mirror' the materials on any other server"
+    ]
+  },
+  {
+    title: "Disclaimer",
+    content: "The materials on Giganxt Solutions's website are provided on an 'as is' basis. Giganxt Solutions makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
+  },
+  {
+    title: "Limitations",
+    content: "In no event shall Giganxt Solutions or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Giganxt Solutions's website, even if Giganxt Solutions or a Giganxt Solutions authorized representative has been notified orally or in writing of the possibility of such damage."
+  },
+  {
+    title: "Accuracy of Materials",
+    content: "The materials appearing on Giganxt Solutions's website could include technical, typographical, or photographic errors. Giganxt Solutions does not warrant that any of the materials on its website are accurate, complete, or current. Giganxt Solutions may make changes to the materials contained on its website at any time without notice."
+  },
+  {
+    title: "Links",
+    content: "Giganxt Solutions has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Giganxt Solutions of the site. Use of any such linked website is at the user's own risk."
+  },
+  {
+    title: "Modifications",
+    content: "Giganxt Solutions may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service."
+  },
+  {
+    title: "Governing Law",
+    content: "These terms and conditions are governed by and construed in accordance with the laws of India and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
+  },
+  {
+    title: "Services",
+    content: "Giganxt Solutions provides web development, app development, software solutions, and AI-driven innovations. We reserve the right to refuse service to anyone for any reason at any time."
+  },
+  {
+    title: "Intellectual Property",
+    content: "The Service and its original content, features, and functionality are and will remain the exclusive property of Giganxt Solutions and its licensors. The Service is protected by copyright, trademark, and other laws of both India and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Giganxt Solutions."
+  },
+  {
+    title: "User Accounts",
+    content: "When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service."
+  },
+  {
+    title: "Contact Us",
+    content: "If you have any questions about these Terms, please contact us at contact@giganxt.com."
+  }
 ];
 
 

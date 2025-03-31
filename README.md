@@ -5,7 +5,7 @@
 Welcome to **Giganxt Solutions**, where **innovation meets excellence**! We specialize in cutting-edge IT solutions to help businesses scale and thrive in the digital world.
 
 ## 🌐 Live Website
-https://www.giganxt.me
+https://www.giganxt.com
 
 ## 💡 What We Offer
 
@@ -40,8 +40,8 @@ Make sure you have the following installed:
 
 
 ## 📩 Contact Us
-📧 **Email:** contact@giganxt.me  
-🌍 **Website:** [www.giganxt.me](#) 
+📧 **Email:** contact@giganxt.com  
+🌍 **Website:** [www.giganxt.com](#) 
 📱 **Follow us on social media:** @GIGANXT  
 
 ---
