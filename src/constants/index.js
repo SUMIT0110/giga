@@ -73,7 +73,15 @@ import {
   avatar8,
   avatar9,
 
+  service1,
+  service2,
   service3,
+  service4,
+  service5,
+  service6,
+  service7,
+  service8,
+  service9,
 
   icon_inst,
   icon_face,
@@ -358,7 +366,7 @@ export const benefits = [
     text: "Create modern, responsive, and SEO-friendly websites tailored to businesses and personal brands.",
     backgroundUrl: benefitCard1,
     iconUrl: benefitImage6,
-    imageUrl: "src/assets/services/service-6.png",
+    imageUrl: service6,
     head_1: "Web Development Process",
     process: [
       { stage: "Requirement Gathering & Analysis", description: "Understand project scope, goals, and target audience." },
@@ -378,7 +386,7 @@ export const benefits = [
     text: "Build high-performance mobile and web apps with intuitive UI/UX and cross-platform compatibility.",
     backgroundUrl: benefitCard2,
     iconUrl: benefitImage7,
-    imageUrl: "src/assets/services/service-5.png",
+    imageUrl: service5,
     light: true,
     head_1: "App Development Process",
     process: [
@@ -399,7 +407,7 @@ export const benefits = [
     text: "Extract actionable insights from data using predictive analytics, visualization, and business intelligence.",
     backgroundUrl: benefitCard3,
     iconUrl: benefitImage8,
-    imageUrl: "src/assets/services/service-4.png",
+    imageUrl: service4,
     head_1: "Data Science & Analytics Process",
     process: [
       { stage: "Problem Definition", description: "Identify business problems and determine how data can solve them." },
@@ -419,7 +427,7 @@ export const benefits = [
     text: "Develop AI-powered solutions like recommendation systems, fraud detection, and automation models.",
     backgroundUrl: benefitCard2,
     iconUrl: benefitImage9,
-    imageUrl: "src/assets/services/service-9.png",
+    imageUrl: service9,
     light: true,
     head_1: "AI & Machine Learning Process",
     process: [
@@ -438,7 +446,7 @@ export const benefits = [
     text: "Automate customer interactions with intelligent chatbots and AI-driven virtual assistants for various industries.",
     backgroundUrl: benefitCard5,
     iconUrl: benefitImage10,
-    imageUrl: "src/assets/services/service-8.png",
+    imageUrl: service8,
     head_1: "Chatbot Development Process",
     process: [
       { stage: "Requirement Analysis", description: "Identify the needs and goals of the chatbot or virtual assistant." },
@@ -456,7 +464,7 @@ export const benefits = [
     text: "Boost online presence with SEO, social media marketing, paid ads, content creation, and branding strategies.",
     backgroundUrl: benefitCard6,
     iconUrl: benefitImage11,
-    imageUrl: "src/assets/services/service-7.png",
+    imageUrl: service7,
     head_1: "Digital Marketing Process",
     process: [
       { stage: "Market Research", description: "Identify target audience, competitors, and industry trends." },
