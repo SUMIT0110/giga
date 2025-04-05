@@ -341,7 +341,7 @@ const Footer = () => {
                   whileHover={{ x: 5, color: "#1E50FF", transition: { duration: 0.2 } }}
                 >
                   <span className="mr-3 text-[#1E50FF] mt-1">✉</span> 
-                  <a href="mailto:contact@giganxt.com" className="hover:text-[#1E50FF] transition-colors duration-300">
+                  <a  className="hover:text-[#1E50FF] transition-colors duration-300">
                     contact@giganxt.com
                   </a>
                 </motion.li>
