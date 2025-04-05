@@ -82,8 +82,8 @@ const Contact = () => {
     // Message validation
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters long";
+    } else if (formData.message.trim().length < 2) {
+      newErrors.message = "Message must be at least 2 characters long";
     }
     
     setErrors(newErrors);
@@ -238,7 +238,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full bg-n-7 border ${errors.name ? 'border-red-500' : 'border-n-6'} rounded-lg p-3 text-n-1 focus:outline-none focus:border-[#1E50FF] transition-colors`}
-                    placeholder="John Doe"
+                    placeholder="Enter your name"
                   />
                   {errors.name && (
                     <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -257,7 +257,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full bg-n-7 border ${errors.email ? 'border-red-500' : 'border-n-6'} rounded-lg p-3 text-n-1 focus:outline-none focus:border-[#1E50FF] transition-colors`}
-                    placeholder="john@example.com"
+                    placeholder="Enter your email address"
                   />
                   {errors.email && (
                     <p className="text-red-500 text-sm mt-1">{errors.email}</p>
