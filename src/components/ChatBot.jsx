@@ -251,7 +251,7 @@ const ChatBot = () => {
       setTimeout(() => {
         setMessages([
           {
-            text: "Hello! I'm the Giganxt Solutions virtual assistant. I can help you with information about our web development, app development, and AI integration services. How can I assist you today?",
+            text: "Hello! I'm the Giganxt Solutions virtual assistant. How can I assist you today?",
             sender: "bot",
             timestamp: new Date().toISOString(),
             category: "general"
