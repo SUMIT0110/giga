@@ -52,7 +52,8 @@ const Hero = () => {
                   className="w-full aspect-[33/40] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490] "
                   width={1024}
                   height={490}
-                  alt="AI"
+                  alt="GigaNXT Digital Solutions - Empowering Business Innovation"
+                  loading="eager"
                 />
 
                 {/* <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" /> */}
@@ -61,7 +62,7 @@ const Hero = () => {
                   <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
                     {heroIcons.map((icon, index) => (
                       <li className="p-5" key={index}>
-                        <img src={icon} width={35} height={35} alt={icon} />
+                        <img src={icon} width={35} height={35} alt="Technology Icon" loading="lazy" />
                       </li>
                     ))}
                   </ul>
@@ -73,7 +74,7 @@ const Hero = () => {
                   <ul className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
                     {heroIcons1.map((icon, index) => (
                       <li className="p-5" key={index}>
-                        <img src={icon} width={50} height={50} alt={icon} />
+                        <img src={icon} width={50} height={50} alt="Service Icon" loading="lazy" />
                       </li>
                     ))}
                   </ul>
@@ -93,7 +94,8 @@ const Hero = () => {
               className="w-full opacity-35"
               width={1440}
               height={1800}
-              alt="hero"
+              alt="Digital Transformation Background"
+              loading="lazy"
             />
           </div>
 

@@ -10,6 +10,7 @@ const SEO = ({
   url,
   canonical,
   type,
+  schema = {},
 }) => {
   const siteTitle = title ? `${title} | GigaNXT Solutions` : 'GigaNXT Solutions - Web, App, Software & AI Development';
   const siteDescription = description || 'Innovating Web, App, Software, and AI Solutions to Empower Businesses for the Digital Future.';
@@ -48,6 +49,28 @@ const SEO = ({
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="author" content="GigaNXT Solutions" />
+
+      {/* Schema.org Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          'name': 'GigaNXT Solutions',
+          'url': siteUrl,
+          'logo': siteImage,
+          'description': siteDescription,
+          'address': {
+            '@type': 'PostalAddress',
+            'addressCountry': 'IN'
+          },
+          'sameAs': [
+            'https://www.linkedin.com/company/giganxt',
+            'https://twitter.com/giganxt',
+            'https://facebook.com/giganxt'
+          ],
+          ...schema
+        })}
+      </script>
     </Helmet>
   );
 };
@@ -60,6 +83,7 @@ SEO.propTypes = {
   url: PropTypes.string,
   canonical: PropTypes.string,
   type: PropTypes.string,
+  schema: PropTypes.object,
 };
 
 export default SEO;
