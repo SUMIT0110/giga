@@ -220,7 +220,7 @@ const Contact = () => {
                 exit={{ opacity: 0, height: 0 }}
               >
                 <p className="font-medium">Message Not Sent</p>
-                <p>There was an error sending your message. Please check your internet connection and try again later, or contact us directly at info@giganxt.com.</p>
+                <p>There was an error sending your message. Please check your internet connection and try again later, or contact us directly at contact@giganxt.com.</p>
               </motion.div>
             )}
             
