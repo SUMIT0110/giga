@@ -1,44 +1,76 @@
 import React from "react";
-import Header from "../components/Header";
-import { termsData } from "../constants"; // Import data like privacyData
-import Heading from "../components/Heading";
+import { termsData } from "../constants";
 import Section from "../components/Section";
+import styles from "../constants/style";
+import { gradient } from "../assets";
+import { motion } from "framer-motion";
 
 const TermsConditions = () => {
     return (
         <>
-            <Header />
+            <Section className="pt-[12rem] -mt-[5.25rem]" crosses>
+                <div className="container mx-auto px-4 py-16">
+                    {/* Animated background gradient effect */}
+                    <div className="relative">
+                        <div className="absolute top-0 -left-16 -right-16 h-full">
+                            <img 
+                                src={gradient} 
+                                className="w-full h-full object-cover opacity-40" 
+                                alt="Background gradient" 
+                            />
+                        </div>
+                    </div>
 
-            <Section>
-                <div className="mt-3 min-h-screen bg-[#000000] text-white py-16 px-6 md:px-16 flex items-center justify-center">
-                    {/* Glassmorphic Card */}
-                    <div className="relative max-w-4xl mx-auto p-10 rounded-2xl shadow-lg border border-gray-700 bg-opacity-10 backdrop-blur-lg bg-white/5">
-                        {/* Subtle Glow Effect */}
-                        <div className="absolute inset-0 w-full h-full rounded-2xl border border-gray-500 blur-xl opacity-20"></div>
+                    <div className="text-center mb-16">
+                        <motion.h1 
+                            className="text-4xl md:text-6xl font-bold mb-6 text-white"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Terms & Conditions
+                        </motion.h1>
+                        <motion.p 
+                            className={`${styles.paragraph} max-w-3xl mx-auto`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            These Terms and Conditions govern your use of the Giganxt Solutions website and services.
+                        </motion.p>
+                    </div>
 
-                        {/* Main Title */}
-                        <Heading
-                            className="md:max-w-md lg:max-w-2xl text-blue-400"
-                            title="Terms & Conditions"
-                        />
-
-                        {termsData.map((section, index) => (
-                            <div key={index} className="mb-8">
-                                <h2 className="text-2xl font-semibold text-blue-400 mt-6">
-                                    {section.title}
-                                </h2>
-                                <p className="mt-2 text-gray-300 leading-relaxed">
-                                    {section.content}
-                                </p>
-                                {section.list && (
-                                    <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-400">
-                                        {section.list.map((item, i) => (
-                                            <li key={i} className="text-lg">{item}</li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </div>
-                        ))}
+                    <div className="max-w-4xl mx-auto">
+                        <div className="bg-[#0F1524] border border-[#1E2D4A] rounded-2xl p-8 shadow-xl">
+                            {termsData.map((section, index) => (
+                                <motion.div 
+                                    key={index} 
+                                    className="mb-8"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <h3 className="text-2xl font-bold text-white mb-4">{section.title}</h3>
+                                    <p className="text-[#b7bac1] mb-4">{section.content}</p>
+                                    
+                                    {section.list && (
+                                        <ul className="space-y-4">
+                                            {section.list.map((item, i) => (
+                                                <li key={i} className="flex items-start">
+                                                    <div className="h-5 w-5 rounded-full bg-[#1E50FF] flex items-center justify-center mr-3 mt-1">
+                                                        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6667 3.5L5.25 9.91667L2.33333 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        </svg>
+                                                    </div>
+                                                    <p className="text-[#b7bac1]">{item}</p>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </Section>

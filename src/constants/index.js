@@ -180,7 +180,7 @@ export const navigation = [
   {
     id: "4",
     title: "Contact",
-    url: "#footer",
+    url: "/contact",
   },
   
 ];

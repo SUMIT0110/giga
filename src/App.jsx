@@ -16,6 +16,8 @@ import ChatBot from "./components/ChatBot"; // Import the ChatBot component
 import SEO from "./components/SEO"; // Import the SEO component
 import PrivacyPolicy from "./Pages/Privacypolicy";
 import TermsConditions from "./Pages/TermsConditions";
+import Career from "./Pages/Career"; // Import the Career page
+import Contact from "./Pages/Contact"; // Import the Contact page
 
 const App = () => {
   return (
@@ -81,6 +83,30 @@ const App = () => {
               <TermsConditions />
             </>
           } /> {/* Terms & Conditions route */}
+
+          <Route path="/career" element={
+            <>
+              <SEO 
+                title="Careers" 
+                description="Join the GigaNXT Solutions team - Explore career opportunities and be part of our innovative technology company."
+                keywords="careers, jobs, employment, tech jobs, IT careers, software development jobs, AI jobs"
+                canonical="https://giganxt.com/career"
+              />
+              <Career />
+            </>
+          } /> {/* Career page route */}
+
+          <Route path="/contact" element={
+            <>
+              <SEO 
+                title="Contact Us" 
+                description="Get in touch with GigaNXT Solutions - Contact us for web development, app development, software solutions, and AI services."
+                keywords="contact us, get in touch, email us, contact form, software development contact, IT services contact"
+                canonical="https://giganxt.com/contact"
+              />
+              <Contact />
+            </>
+          } /> {/* Contact page route */}
 
         </Routes>
         <Footer />

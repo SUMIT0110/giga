@@ -57,7 +57,7 @@ const Benefits = () => {
 
               {/* Background image hover effect */}
               <div className="absolute inset-0.5 bg-n-8 rounded-lg" style={{ clipPath: "url(#benefits)" }}>
-                <div className="absolute inset-0 opacity-20 group-hover:opacity-50 transition-opacity duration-500">
+                <div className="absolute inset-0 opacity-20 group-hover:opacity-70 transition-opacity duration-500">
                   {item.imageUrl && (
                     <img
                       src={item.imageUrl}
