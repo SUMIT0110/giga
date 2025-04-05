@@ -12,11 +12,11 @@ const SEO = ({
   type,
   schema = {},
 }) => {
-  const siteTitle = title ? `${title} | GigaNXT Solutions` : 'GigaNXT Solutions - Web, App, Software & AI Development';
+  const siteTitle = title ? `${title} | Giganxt Solutions` : 'Giganxt Solutions - Web, App, Software & AI Development';
   const siteDescription = description || 'Innovating Web, App, Software, and AI Solutions to Empower Businesses for the Digital Future.';
-  const siteKeywords = keywords || 'web development, app development, software solutions, AI development, digital marketing, IT services';
+  const siteKeywords = keywords || 'web development, app development, software solutions, AI development, digital marketing, IT services, Giganxt, Giganext, GIGANXT, GiganxtSolution, Giganxt Solutions';
   const siteImage = image || 'https://giganxt.com/assets/newlogo-removebg-preview.png';
-  const siteUrl = url || 'https://giganxt.com';
+  const siteUrl = url || 'https://www.giganxt.com';
   const siteCanonical = canonical || siteUrl;
   const siteType = type || 'website';
 
