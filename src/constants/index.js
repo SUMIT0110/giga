@@ -15,7 +15,7 @@ import {
   benefitCard2,
   benefitCard3,
   benefitCard4,
-  benefitCard5, 
+  benefitCard5,
   benefitCard6,
 
   chromecast,
@@ -95,7 +95,7 @@ import {
   project4,
   project5,
   project6,
-  
+
 
 } from "../assets";
 
@@ -103,58 +103,59 @@ import {
 
 export const Work = [
   {
-    imgSrc: project5,
-    title: "E-Commerce Website",
-    client: "ShopNow",
-    category: "E-Commerce",
-    tags: ["eCommerce", "Development"],
-    techStack: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
-    projectLink: "https://giganxtecomm.netlify.app/",
+    imgSrc: project1,
+    title: "Stock Market",
+    client: "NOVEX PRO",
+    category: "Stock Market",
+    tags: ["AI Agent", "Data Scraping"],
+    techStack: ["Next", "Python", "MongoDB"],
+    projectLink: "https://www.novexpro.co/",
   },
   {
     imgSrc: project2,
+    title: "E-Commerce Website",
+    client: "LUXE",
+    category: "E-Commerce",
+    tags: ["eCommerce", "Development"],
+    techStack: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
+    projectLink: "https://e-commerce-sigma-beige-91.vercel.app/",
+  },
+  {
+    imgSrc: project3,
     title: "Tours & Travels Website",
     client: "Elite Holidays",
     category: "Business Website",
     tags: ["Travel", "Booking", "Web App"],
     techStack: ["TypeScript", "React", "MongoDB", "Node.js", "Express"],
-    projectLink: "#",
-  },
-  {
-    imgSrc: project3,
-    title: "Recipe App",
-    client: "Foodie",
-    category: "Web Application",
-    tags: ["Development", "API"],
-    techStack: ["Next.js", "Firebase", "Tailwind CSS"],
-    projectLink: "#",
+    projectLink: "https://elite-holidays.vercel.app/",
   },
   {
     imgSrc: project4,
-    title: "Real Estate Website",
-    client: "Elite Realty",
-    category: "Real Estate",
-    tags: ["Web Design", "Development"],
-    techStack: ["React", "Sanity CMS", "GraphQL"],
-    projectLink: "#",
-  },
-  {
-    imgSrc: project1, // ✅ Correct usage
-    title: "Full Stack Music App",
-    client: "XYZ Music",
+    title: "Cafe Page",
+    client: "Artisan Brew",
     category: "Web Application",
+    tags: ["Development", "Booking system"],
+    techStack: ["Next.js", "Firebase", "Tailwind CSS"],
+    projectLink: "https://cafe-bice.vercel.app/",
+  },
+
+  {
+    imgSrc: project5, // ✅ Correct usage
+    title: "Clothing E-Commerce",
+    client: "FOREVER",
+    category: "E-Commerce",
     tags: ["API", "MVC", "Development"],
     techStack: ["React", "Node.js", "MongoDB", "Express"],
     projectLink: "https://giganxtecomm.netlify.app/",
   },
   {
     imgSrc: project6,
-    title: "vCard Personal Portfolio",
-    client: "Freelancer",
+    title: "Ayurvedic Hospital",
+    client: "SSACNPC",
     category: "Portfolio",
     tags: ["Web Design", "Development"],
     techStack: ["React", "Framer Motion", "Styled Components"],
-    projectLink: "#",
+    projectLink: "https://landingpage-ebon-eight.vercel.app/",
   },
 ];
 
@@ -182,12 +183,12 @@ export const navigation = [
     title: "Contact",
     url: "/contact",
   },
-  
+
 ];
 
 export const heroIcons = [mongo, express, react, node];
 
-export const heroIcons1 = [Figma, github, tensor,  mathlab];
+export const heroIcons1 = [Figma, github, tensor, mathlab];
 
 export const notificationImages = [notification4, notification3, notification2];
 
@@ -212,7 +213,7 @@ export const roadmap = [
     id: "0",
     title: "LLM (Large Language Model)",
     text: "We are developing AI models based on Sanskrit's structured grammar to enhance accuracy in NLP tasks, generating precise outputs in English while leveraging Sanskrit's linguistic rules.",
-    date: "May 2025",
+    date: "August 2025",
     status: "progress",
     imageUrl: llm,
     colorful: true,
@@ -484,57 +485,51 @@ export const benefits = [
 export const testimonials = [
   {
     text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
-    imageSrc: avatar1,
-    name: "Jamie Rivera",
-    username: "@jamietechguru00",
+    name: "Ganesh Bhalerao",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
-    imageSrc: avatar2,
-    name: "Josh Smith",
-    username: "@jjsmith",
+    text: "Our team's productivity has skyrocketed since we started using this tool.",
+    name: "Elite Holidays",
   },
   {
     text: "This app has completely transformed how I manage my projects and deadlines.",
-    imageSrc: avatar3,
-    name: "Morgan Lee",
-    username: "@morganleewhiz",
+    name: "Pranav Yelikar",
   },
   {
     text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
-    imageSrc: avatar4,
-    name: "Casey Jordan",
-    username: "@caseyj",
+    name: "Digital Factory",
   },
   {
     text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
-    imageSrc: avatar5,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
-  },
-  {
-    text: "The customizability and integration capabilities of this app are top-notch.",
-    imageSrc: avatar6,
-    name: "Riley Smith",
-    username: "@rileysmith1",
-  },
-  {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
-    imageSrc: avatar7,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
+    name: "Dhruv Gohel",
   },
   {
     text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar8,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
+    name: "Ameya Tapkire",
   },
   {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
-    imageSrc: avatar9,
-    name: "Casey Harper",
-    username: "@casey09",
+    text: "This app gives me complete control and clarity over my workflow. Highly recommended!",
+    name: "Kailash Gaikwad",
+  },
+  {
+    text: "Managing multiple clients and tasks is seamless now. Great tool!",
+    name: "Jigar Shah",
+  },
+  {
+    text: "At NOVEX PRO, we demand efficiency. This app delivers exactly that.",
+    name: "NOVEX PRO",
+  },
+  {
+    text: "An excellent tool that simplifies complex task management across our entire team.",
+    name: "Bhairav Kulkarni",
+  },
+  {
+    text: "Our clinic runs smoother with this system in place. Great job!",
+    name: "Shree Siddhivinayak Ayurveda",
+  },
+  {
+    text: "The sleek UI and smart integrations make it a perfect match for our brand.",
+    name: "LUXE",
   },
 ];
 

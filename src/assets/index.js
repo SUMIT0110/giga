@@ -121,12 +121,12 @@ import icon_x from "./down/x.svg";
 import icon_link from "./down/linkedin.svg";
 import logo from "./down/logo_1.jpg";
 
-import project1 from "./Proj_img/project-1.jpg";
-import project2 from "./Proj_img/project-2.jpg";
-import project3 from "./Proj_img/project-3.jpg";
-import project4 from "./Proj_img/project-4.jpg";
-import project5 from "./Proj_img/project-5.jpg";
-import project6 from "./Proj_img/project-6.jpg";
+import project1 from "./Proj_img/project-1.png";
+import project2 from "./Proj_img/project-2.png";
+import project3 from "./Proj_img/project-3.png";
+import project4 from "./Proj_img/project-4.png";
+import project5 from "./Proj_img/project-5.png";
+import project6 from "./Proj_img/project-6.png";
 
 import llm from "./rod_img/LLM.png";
 

@@ -22,7 +22,7 @@ const Footer = () => {
     hover: {
       scale: 1.05,
       x: 5,
-      color: "#1E50FF",
+      color: "#AC6AFF",
       transition: { duration: 0.2 }
     }
   };
@@ -90,7 +90,7 @@ const Footer = () => {
     hover: { 
       opacity: 1, 
       x: 5, 
-      color: "#1E50FF",
+      color: "#AC6AFF",
       transition: { duration: 0.2 } 
     }
   };
@@ -105,7 +105,7 @@ const Footer = () => {
     },
     hover: {
       scale: 1.05,
-      color: "#1E50FF",
+      color: "#AC6AFF",
       transition: { duration: 0.2 }
     }
   };
@@ -125,33 +125,12 @@ const Footer = () => {
   };
 
   return (
-    <Section crosses colorfulBorder className="!py-10 w-full px-6 md:px-16 relative overflow-hidden" id="footer">
-      {/* Animated background gradient effect */}
-      <motion.div 
-        className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 1.5 }}
-      >
-        <motion.div
-          className="absolute inset-0 z-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 30% 20%, rgba(30, 80, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
-              "radial-gradient(circle at 70% 60%, rgba(30, 80, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
-              "radial-gradient(circle at 40% 80%, rgba(30, 80, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
-              "radial-gradient(circle at 30% 20%, rgba(30, 80, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
-            ],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        />
-        <img src={gradient} alt="background gradient" className="w-full h-full object-cover" />
-      </motion.div>
+    <Section className="!py-12 w-full px-6 md:px-16 relative bg-n-8 border-t border-color-1/10" id="footer">
       
       {/* Main Footer Container */}
       <div className="container mx-auto relative z-10">
         {/* Footer Top Section - Logo, Navigation, and Contact */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           {/* Logo and Company Description */}
           <motion.div 
             className="md:col-span-4 flex flex-col"
@@ -173,7 +152,7 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <span className="text-[#1E50FF] font-semibold">Empower</span> Your Business With Giganxt Solution.
+              <span className="text-color-1 font-semibold">Empower</span> Your Business With Giganxt Solution.
             </motion.p>
             
             {/* Social Media Icons */}
@@ -194,7 +173,7 @@ const Footer = () => {
                   className="relative group mr-4"
                 >
                   <motion.div
-                    className="relative z-10 bg-[#1A2337] p-2 rounded-full flex items-center justify-center"
+                    className="relative z-10 bg-n-7 p-2 rounded-full flex items-center justify-center border border-color-1/30 hover:border-color-2 hover:shadow-[0_0_10px_rgba(172,106,255,0.3)] transition-all duration-300"
                     variants={socialVariants}
                   >
                     <img
@@ -207,7 +186,7 @@ const Footer = () => {
                   <AnimatePresence>
                     {hoveredSocial === social.id && (
                       <motion.div 
-                        className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#1E50FF] text-white text-xs py-1 px-2 rounded whitespace-nowrap"
+                        className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-color-1 text-white text-xs py-1 px-2 rounded whitespace-nowrap"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
@@ -244,7 +223,7 @@ const Footer = () => {
               >
                 Company
                 <motion.span 
-                  className="absolute -bottom-2 left-0 h-1 bg-[#1E50FF] transition-all duration-300 w-0"
+                  className="absolute -bottom-2 left-0 h-1 bg-color-1 transition-all duration-300 w-0"
                   animate={{ width: activeSection === 'company' ? '100%' : '0%' }}
                   transition={{ duration: 0.3 }}
                 />
@@ -252,13 +231,13 @@ const Footer = () => {
               <ul className="space-y-4">
                 <motion.li variants={footerLinkVariants} initial="initial" whileHover="hover">
                   <Link to="/about" onClick={() => url} className="text-dimWhite flex items-center group">
-                    <span className="mr-2 text-[#1E50FF] transform group-hover:translate-x-1 transition-transform duration-200">›</span>
+                    <span className="mr-2 text-color-1 transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                     <span>About Us</span>
                   </Link>
                 </motion.li>
                 <motion.li variants={footerLinkVariants} initial="initial" whileHover="hover">
                   <Link to="/career" onClick={() => url} className="text-dimWhite flex items-center group">
-                    <span className="mr-2 text-[#1E50FF] transform group-hover:translate-x-1 transition-transform duration-200">›</span>
+                    <span className="mr-2 text-color-1 transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                     <span>Careers</span>
                   </Link>
                 </motion.li>
@@ -286,7 +265,7 @@ const Footer = () => {
               >
                 Legal & Policies
                 <motion.span 
-                  className="absolute -bottom-2 left-0 h-1 bg-[#1E50FF] transition-all duration-300 w-0"
+                  className="absolute -bottom-2 left-0 h-1 bg-color-1 transition-all duration-300 w-0"
                   animate={{ width: activeSection === 'legal' ? '100%' : '0%' }}
                   transition={{ duration: 0.3 }}
                 />
@@ -294,13 +273,13 @@ const Footer = () => {
               <ul className="space-y-4">
                 <motion.li variants={footerLinkVariants} initial="initial" whileHover="hover">
                   <Link to="/privacy-policy" onClick={() => url} className="text-dimWhite flex items-center group">
-                    <span className="mr-2 text-[#1E50FF] transform group-hover:translate-x-1 transition-transform duration-200">›</span>
+                    <span className="mr-2 text-color-1 transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                     <span>Privacy Policy</span>
                   </Link>
                 </motion.li>
                 <motion.li variants={footerLinkVariants} initial="initial" whileHover="hover">
                   <Link to="/terms-conditions" onClick={() => url} className="text-dimWhite flex items-center group">
-                    <span className="mr-2 text-[#1E50FF] transform group-hover:translate-x-1 transition-transform duration-200">›</span>
+                    <span className="mr-2 text-color-1 transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                     <span>Terms & Conditions</span>
                   </Link>
                 </motion.li>
@@ -330,7 +309,7 @@ const Footer = () => {
               >
                 Contact Us
                 <motion.span 
-                  className="absolute -bottom-2 left-0 h-1 bg-[#1E50FF] transition-all duration-300 w-0"
+                  className="absolute -bottom-2 left-0 h-1 bg-color-1 transition-all duration-300 w-0"
                   animate={{ width: activeSection === 'contact' ? '100%' : '0%' }}
                   transition={{ duration: 0.3 }}
                 />
@@ -338,10 +317,10 @@ const Footer = () => {
               <ul className="space-y-4">
                 <motion.li 
                   className="text-dimWhite flex items-start"
-                  whileHover={{ x: 5, color: "#1E50FF", transition: { duration: 0.2 } }}
+                  whileHover={{ x: 5, color: "#AC6AFF", transition: { duration: 0.2 } }}
                 >
-                  <span className="mr-3 text-[#1E50FF] mt-1">✉</span> 
-                  <a  className="hover:text-[#1E50FF] transition-colors duration-300">
+                  <span className="mr-3 text-color-1 mt-1">✉</span> 
+                  <a  className="hover:text-color-1 transition-colors duration-300">
                     contact@giganxt.com
                   </a>
                 </motion.li>
@@ -349,7 +328,7 @@ const Footer = () => {
                   className="text-dimWhite flex items-start"
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
                 >
-                  <span className="mr-3 text-[#1E50FF] mt-1">📍</span> 
+                  <span className="mr-3 text-color-1 mt-1">📍</span> 
                   <span>Chhatrapati Sambhaji Nagar, Maharashtra, India</span>
                 </motion.li>
                 <motion.li 
@@ -367,7 +346,7 @@ const Footer = () => {
 
         {/* Footer Bottom - Copyright and Social Media */}
         <motion.div 
-          className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t border-t-[#3F3E45]"
+          className="w-full flex justify-between items-center md:flex-row flex-col pt-8 border-t border-t-color-1/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -379,7 +358,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Copyright Ⓒ {new Date().getFullYear()} <span className="text-[#1E50FF]">Giganxt Solutions</span>. All Rights Reserved.
+            Copyright Ⓒ {new Date().getFullYear()} <span className="text-color-1">Giganxt Solutions</span>. <span className="text-color-2">All Rights Reserved.</span>
           </motion.p>
 
           <motion.div 
