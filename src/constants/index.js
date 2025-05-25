@@ -108,7 +108,7 @@ export const Work = [
     client: "NOVEX PRO",
     category: "Stock Market",
     tags: ["AI Agent", "Data Scraping"],
-    techStack: ["Next", "Python", "MongoDB"],
+    techStack: ["Next", "Python", "postgres"],
     projectLink: "https://www.novexpro.co/",
   },
   {
@@ -135,7 +135,7 @@ export const Work = [
     client: "Artisan Brew",
     category: "Web Application",
     tags: ["Development", "Booking system"],
-    techStack: ["Next.js", "Firebase", "Tailwind CSS"],
+    techStack: ["Next.js", "Tailwind CSS"],
     projectLink: "https://cafe-bice.vercel.app/",
   },
 
