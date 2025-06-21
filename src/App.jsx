@@ -18,6 +18,7 @@ import PrivacyPolicy from "./Pages/Privacypolicy";
 import TermsConditions from "./Pages/TermsConditions";
 import Career from "./Pages/Career"; // Import the Career page
 import Contact from "./Pages/Contact"; // Import the Contact page
+import Blog from "./Pages/Blog"; // Import the Blog page
 
 const App = () => {
   return (
@@ -107,6 +108,18 @@ const App = () => {
               <Contact />
             </>
           } /> {/* Contact page route */}
+
+          <Route path="/blog" element={
+            <>
+              <SEO 
+                title="Blog" 
+                description="Explore the GigaNXT Solutions Blog - Insights, updates, and innovations in web development, app development, AI, and technology."
+                keywords="tech blog, AI blog, web development blog, app development blog, 25 weeks 25 agents challenge, technology insights"
+                canonical="https://giganxt.com/blog"
+              />
+              <Blog />
+            </>
+          } /> {/* Blog page route */}
 
         </Routes>
         <Footer />

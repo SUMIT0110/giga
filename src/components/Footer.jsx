@@ -241,7 +241,12 @@ const Footer = () => {
                     <span>Careers</span>
                   </Link>
                 </motion.li>
-
+                <motion.li variants={footerLinkVariants} initial="initial" whileHover="hover">
+                  <Link to="/blog" onClick={() => url} className="text-dimWhite flex items-center group">
+                    <span className="mr-2 text-color-1 transform group-hover:translate-x-1 transition-transform duration-200">›</span>
+                    <span>Blog</span>
+                  </Link>
+                </motion.li>
               </ul>
             </motion.div>
             
