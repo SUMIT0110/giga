@@ -129,6 +129,8 @@ import project5 from "./Proj_img/project-5.png";
 import project6 from "./Proj_img/project-6.png";
 
 import llm from "./rod_img/LLM.png";
+import about1 from "./about1.svg";
+import about2 from "./about2.svg";
 
 export {
   llm,
@@ -252,4 +254,6 @@ export {
   instagram,
   telegram,
   twitter,
+  about1,
+  about2,
 };

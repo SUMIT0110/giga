@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 const ProjectCard = ({ imgSrc, title, client, category, tags, techStack, projectLink, classes }) => {
     return (
         <div
-            className={`relative p-3 bg-gradient-to-b from-gray-900 to-black rounded-xl shadow-lg overflow-hidden group transition-transform duration-300 hover:scale-[1.02] max-w-sm w-full h-[360px] flex flex-col border border-gray-700 ${classes}`}
+            className={`relative p-3 bg-gradient-to-b from-gray-900 to-black rounded-xl shadow-lg overflow-hidden group transition-transform duration-300 hover:scale-[1.02] max-w-xl w-full h-[420px] flex flex-col border border-gray-700 ${classes}`}
         >
             {/* Project Image */}
-            <div className="relative w-full h-44 rounded-lg overflow-hidden">
+            <div className="relative w-full h-64 rounded-lg overflow-hidden">
                 <img
                     src={imgSrc}
                     alt={title}

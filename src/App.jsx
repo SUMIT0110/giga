@@ -6,6 +6,7 @@ import FAQs from "./components/FAQs";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs";
 import Pricing from "./components/Pricing";
 import Roadmap from "./components/Roadmap";
 
@@ -39,6 +40,7 @@ const App = () => {
                 keywords="web development, app development, software solutions, AI development, IT services, digital transformation"
               />
               <Hero />
+              <AboutUs />
               <Benefits />
 
               <Project />
