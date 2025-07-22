@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { ScrollParallax } from 'react-just-parallax';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const HeroScene = () => {
   const controls = useAnimation();
-  
+  const isMobile = useMediaQuery("(max-width: 767px)");
+
   useEffect(() => {
     controls.start('visible');
   }, [controls]);
@@ -72,32 +74,93 @@ const HeroScene = () => {
     }
   };
 
+  // Responsive SVG grid parameters
+  const gridSize = isMobile ? 20 : 40;
+  const strokeWidth = isMobile ? 1 : 0.5;
+  const stopOpacity = isMobile ? 0.5 : 0.3;
+
   return (
-    <div className="relative w-full max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
+    <div className="relative w-full max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24 overflow-visible">
       <motion.div 
-        className="relative z-10 aspect-[33/40] md:aspect-[688/490] lg:aspect-[1024/490] overflow-hidden rounded-2xl bg-gradient-to-br from-n-8/80 to-n-12/80 backdrop-blur-sm border border-n-1/10"
+        className="relative z-10 aspect-[33/40] md:aspect-[688/490] lg:aspect-[1024/490] overflow-visible rounded-2xl bg-gradient-to-br from-n-8/80 to-n-12/80 backdrop-blur-sm border border-n-1/10"
         initial="hidden"
         animate={controls}
         variants={containerVariants}
       >
-        {/* 3D Grid Floor */}
+        {/* Modern SVG Background */}
         <motion.div 
           className="absolute inset-0 w-full h-full"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
+          animate={{ opacity: 0.4 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
             <defs>
-              <linearGradient id="grid-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#88E5BE" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#DD734F" stopOpacity="0.3" />
+              <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="#7C3AED" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#EC4899" stopOpacity="0.2" />
+              </linearGradient>
+              
+              <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+              </radialGradient>
+              
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="20" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+              
+              <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <circle cx="20" cy="20" r="1" fill="rgba(255, 255, 255, 0.3)" />
+              </pattern>
+              
+              <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#EC4899" stopOpacity="0.4" />
               </linearGradient>
             </defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="url(#grid-gradient)" strokeWidth="0.5" />
-            </pattern>
-            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            {/* Base background */}
+            <rect width="100%" height="100%" fill="url(#bg-gradient)" />
+            
+            {/* Dot pattern overlay */}
+            <rect width="100%" height="100%" fill="url(#dots)" />
+            
+            {/* Decorative lines */}
+            <path d="M0,250 Q500,150 1000,350" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
+            <path d="M0,650 Q500,750 1000,550" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
+            
+            {/* Glowing circles */}
+            <circle cx="200" cy="200" r="100" fill="url(#glow-gradient)" opacity="0.6" />
+            <circle cx="800" cy="800" r="150" fill="url(#glow-gradient)" opacity="0.4" />
+            
+            {/* Subtle grid lines - more professional than the previous grid */}
+            <g opacity="0.15">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <line 
+                  key={`h-${i}`}
+                  x1="0" 
+                  y1={i * 100} 
+                  x2="1000" 
+                  y2={i * 100} 
+                  stroke="#fff" 
+                  strokeWidth="0.5" 
+                />
+              ))}
+              {Array.from({ length: 10 }).map((_, i) => (
+                <line 
+                  key={`v-${i}`}
+                  x1={i * 100} 
+                  y1="0" 
+                  x2={i * 100} 
+                  y2="1000" 
+                  stroke="#fff" 
+                  strokeWidth="0.5" 
+                />
+              ))}
+            </g>
           </svg>
         </motion.div>
 
@@ -123,61 +186,134 @@ const HeroScene = () => {
           animate="animate"
         />
 
-        {/* Central Element */}
+        {/* GIGANXT Logo - improved centering for mobile and desktop */}
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-64 md:h-64 flex items-center justify-center"
+          className={`absolute top-4 z-30 flex items-center justify-center ${
+            isMobile 
+              ? 'left-0 right-0 mx-auto w-full px-4' 
+              : 'left-1/2 -translate-x-1/2 w-80'
+          }`}
           variants={itemVariants}
         >
-          <div className="relative">
+          {/* Content */}
+          <div className={`backdrop-blur-md bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/5 rounded-md ${
+            isMobile 
+              ? 'px-4 py-2 max-w-[280px] mx-auto' 
+              : 'px-8 py-4'
+          }`}>
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-xl"
+              className="text-center"
+              variants={itemVariants}
+            >
+              <h3 className={`font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 ${
+                isMobile ? 'text-lg' : 'text-3xl'
+              }`}>
+                GIGANXT
+              </h3>
+              <div className={`h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent ${
+                isMobile ? 'my-1' : 'my-2'
+              }`}></div>
+              <p className={`text-white/70 ${
+                isMobile ? 'text-xs' : 'text-sm'
+              }`}>
+                Digital Innovation
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Central Element - Modern Geometric Design */}
+        <motion.div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-40 md:w-80 md:h-56 flex items-center justify-center"
+          variants={itemVariants}
+        >
+          {/* Background Elements */}
+          <div className="absolute w-full h-full">
+            {/* Decorative geometric shapes - reduced size to avoid overlap */}
+            <motion.div 
+              className="absolute -top-6 -left-6 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 backdrop-blur-sm rounded-md rotate-12"
               animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0.8, 0.5]
+                rotate: [12, 0, 12],
+                scale: [1, 1.05, 1]
               }}
               transition={{
-                duration: 4,
+                duration: 8,
                 repeat: Infinity,
                 ease: 'easeInOut'
               }}
             />
             <motion.div 
-              className="relative z-10 w-40 h-40 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 backdrop-blur-md flex items-center justify-center border border-white/10"
+              className="absolute -bottom-6 -right-6 w-14 h-14 md:w-20 md:h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-md -rotate-12"
               animate={{
-                rotate: 360
+                rotate: [-12, -24, -12],
+                scale: [1, 1.05, 1]
               }}
               transition={{
-                duration: 20,
+                duration: 8,
                 repeat: Infinity,
-                ease: 'linear'
+                ease: 'easeInOut',
+                delay: 0.5
               }}
-            >
-              <motion.div 
-                className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-indigo-500/40 to-purple-700/40 backdrop-blur-md flex items-center justify-center"
-                animate={{
-                  rotate: -360
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: 'linear'
-                }}
-              >
-                <motion.div 
-                  className="text-center"
-                  variants={itemVariants}
-                >
-                  <h3 className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">GIGANXT</h3>
-                  <p className="text-xs md:text-sm text-white/70 mt-2">Digital Innovation</p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+            />
+            <motion.div 
+              className="absolute top-1/2 -right-4 w-8 h-8 md:w-12 md:h-12 border border-indigo-500/30 rounded-full"
+              animate={{
+                scale: [1, 1.2, 1]
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            <motion.div 
+              className="absolute top-1/4 -left-3 w-6 h-6 md:w-10 md:h-10 border border-blue-500/30 rounded-full"
+              animate={{
+                scale: [1, 1.2, 1]
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1
+              }}
+            />
+          </div>
+          
+          {/* Main Content Container - Empty for mobile to avoid conflict with centered logo */}
+          <div className="relative z-0 w-full h-full flex flex-col justify-center items-center">
+            {/* Horizontal line */}
+            <motion.div 
+              className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
+              animate={{
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            
+            {/* Bottom horizontal line */}
+            <motion.div 
+              className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"
+              animate={{
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1.5
+              }}
+            />
           </div>
         </motion.div>
 
         {/* Animated Code Lines */}
         <motion.div 
-          className="absolute bottom-8 left-8 right-8 h-20 overflow-hidden rounded-lg bg-n-10/30 backdrop-blur-sm border border-n-1/10"
+          className="absolute bottom-12 md:bottom-4 left-8 right-8 h-14 md:h-20 overflow-hidden rounded-lg bg-n-10/30 backdrop-blur-sm border border-n-1/10"
           variants={itemVariants}
         >
           <motion.div
@@ -189,69 +325,174 @@ const HeroScene = () => {
               ease: 'linear',
               repeatType: 'loop' 
             }}
-            className="text-xs md:text-sm font-mono text-green-400/80 p-4"
+            className="text-xs md:text-sm font-mono text-green-400/80 p-2 md:p-4"
           >
             <div className="mb-1">// GIGANXT Digital Innovation</div>
-            <div className="mb-1">// Web Development</div>
-            <div className="mb-1">// App Development</div>
-            <div className="mb-1">// Software Solutions</div>
-            <div className="mb-1">// AI Innovation</div>
-            <div className="mb-1">// Machine Learning</div>
-            <div className="mb-1">// Data Science</div>
-            <div className="mb-1">// Empowering Your Business</div>
-            <div className="mb-1">// For The Digital Future</div>
+            <div className="mb-1">// Web Development Solutions</div>
+            <div className="mb-1">// Mobile App Development</div>
+            <div className="mb-1">// UI/UX Design Services</div>
+            <div className="mb-1">// User Experience Optimization</div>
+            <div className="mb-1">// Enterprise Software Solutions</div>
+            <div className="mb-1">// Advanced AI Integration</div>
+            <div className="mb-1">// Machine Learning Models</div>
+            <div className="mb-1">// Data Science & Analytics</div>
+            <div className="mb-1">// Digital Transformation</div>
             <div className="mb-1">// www.giganxt.com</div>
           </motion.div>
         </motion.div>
+        
+        {/* Animated Code Lines - Repositioned to avoid overlapping */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -left-10 top-1/3 w-1/4 h-px bg-gradient-to-r from-transparent via-n-1/10 to-transparent">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-n-1/50 to-transparent"
+              animate={{
+                x: ['-100%', '100%'],
+              }}
+              transition={{
+                duration: 3,
+                ease: 'linear',
+                repeat: Infinity,
+                repeatDelay: 2
+              }}
+            />
+          </div>
+          <div className="absolute -right-10 top-3/4 w-1/4 h-px bg-gradient-to-r from-transparent via-n-1/10 to-transparent">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-n-1/50 to-transparent"
+              animate={{
+                x: ['100%', '-100%'],
+              }}
+              transition={{
+                duration: 3,
+                ease: 'linear',
+                repeat: Infinity,
+                repeatDelay: 3
+              }}
+            />
+          </div>
+          <div className="absolute left-1/4 -bottom-10 h-1/4 w-px bg-gradient-to-b from-transparent via-n-1/10 to-transparent">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-b from-transparent via-n-1/50 to-transparent"
+              animate={{
+                y: ['-100%', '100%'],
+              }}
+              transition={{
+                duration: 3,
+                ease: 'linear',
+                repeat: Infinity,
+                repeatDelay: 1
+              }}
+            />
+          </div>
+        </div>
 
-        {/* Tech Icons */}
+        {/* Tech Icons - Positioned Half In/Half Out of Container */}
+        {/* Left Side Icons */}
+        {/* Top Left - Web Dev */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
-            className="absolute left-4 md:left-8 top-1/4 px-3 py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl hidden md:flex items-center space-x-2"
+            className="absolute -left-6 sm:-left-10 md:-left-20 top-[10%] md:top-[15%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <div className="w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-xs font-medium text-white">Web Dev</span>
+            <span className="text-xs font-medium text-white truncate">Web Dev</span>
+          </motion.div>
+        </ScrollParallax>
+        
+        {/* Middle Left - App Development */}
+        <ScrollParallax isAbsolutelyPositioned>
+          <motion.div 
+            className="absolute -left-8 sm:-left-12 md:-left-24 top-[35%] md:top-[40%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+          >
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-white truncate">App Development</span>
+          </motion.div>
+        </ScrollParallax>
+        
+        {/* Bottom Left - UI/UX Design */}
+        <ScrollParallax isAbsolutelyPositioned>
+          <motion.div 
+            className="absolute -left-6 sm:-left-10 md:-left-20 top-[60%] md:top-[65%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+          >
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-cyan-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-cyan-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-white truncate">UI/UX Design</span>
           </motion.div>
         </ScrollParallax>
 
+        {/* Right Side Icons */}
+        {/* Top Right - AI Solutions */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
-            className="absolute right-4 md:right-8 top-1/3 px-3 py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl hidden md:flex items-center space-x-2"
+            className="absolute -right-6 sm:-right-10 md:-right-20 top-[10%] md:top-[15%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            <div className="w-8 h-8 rounded-full bg-purple-500/30 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
               </svg>
             </div>
-            <span className="text-xs font-medium text-white">AI Solutions</span>
+            <span className="text-xs font-medium text-white truncate">AI Solutions</span>
           </motion.div>
         </ScrollParallax>
 
+        {/* Middle Right - ML Models */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
-            className="absolute right-4 md:right-8 bottom-1/4 px-3 py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl hidden md:flex items-center space-x-2"
+            className="absolute -right-8 sm:-right-12 md:-right-24 top-[35%] md:top-[40%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
+            transition={{ delay: 1.6, duration: 0.8 }}
           >
-            <div className="w-8 h-8 rounded-full bg-amber-500/30 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-yellow-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
               </svg>
             </div>
-            <span className="text-xs font-medium text-white">Fast Delivery</span>
+            <span className="text-xs font-medium text-white truncate">ML Models</span>
           </motion.div>
         </ScrollParallax>
+        
+        {/* Bottom Right - User Experience */}
+        <ScrollParallax isAbsolutelyPositioned>
+          <motion.div 
+            className="absolute -right-6 sm:-right-10 md:-right-20 top-[60%] md:top-[65%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.7, duration: 0.8 }}
+          >
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-orange-500/30 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-white truncate">User Experience</span>
+          </motion.div>
+        </ScrollParallax>
+
       </motion.div>
 
       {/* Background Glow Effect */}
