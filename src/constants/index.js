@@ -127,7 +127,7 @@ export const Work = [
     category: "Business Website",
     tags: ["Travel", "Booking", "Web App"],
     techStack: ["TypeScript", "React", "MongoDB", "Node.js", "Express"],
-    projectLink: "https://elite-holidays.vercel.app/",
+    projectLink: "https://www.eliteholidays.in/",
   },
   {
     imgSrc: project4,
@@ -141,21 +141,21 @@ export const Work = [
 
   {
     imgSrc: project5, // ✅ Correct usage
-    title: "Clothing E-Commerce",
-    client: "FOREVER",
+    title: "Bakery Website",
+    client: "Sweet Delights",
     category: "E-Commerce",
-    tags: ["API", "MVC", "Development"],
+    tags: ["API", "MVC", "AI"],
     techStack: ["React", "Node.js", "MongoDB", "Express"],
-    projectLink: "https://giganxtecomm.netlify.app/",
+    projectLink: "https://bakery-yfdo.vercel.app/",
   },
   {
     imgSrc: project6,
-    title: "Ayurvedic Hospital",
+    title: "Ayurvedic Hospital website",
     client: "SSACNPC",
     category: "Portfolio",
     tags: ["Web Design", "Development"],
     techStack: ["React", "Framer Motion", "Styled Components"],
-    projectLink: "https://landingpage-ebon-eight.vercel.app/",
+    projectLink: "https://www.shreesiddhivinayakayurveda.in/",
   },
 ];
 
