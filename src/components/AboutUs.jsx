@@ -5,18 +5,38 @@ import Button from "./Button";
 import { about1, about2 } from "../assets";
 
 const AboutUs = () => {
-  // Animation variants
+  // Enhanced animation variants with reduced blur effects
   const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { 
+      opacity: 0, 
+      y: 40
+    },
     visible: { 
       opacity: 1, 
-      y: 0, 
+      y: 0,
       transition: { 
         type: "spring", 
-        damping: 12, 
+        damping: 20, 
         stiffness: 100, 
-        duration: 0.8, 
-        ease: "easeOut" 
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      } 
+    }
+  };
+  
+  const fadeInLeft = {
+    hidden: { 
+      opacity: 0, 
+      x: -40
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        type: "spring", 
+        damping: 20, 
+        stiffness: 100, 
+        duration: 0.6
       } 
     }
   };
@@ -27,20 +47,23 @@ const AboutUs = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.1,
-        staggerChildren: 0.2,
+        staggerChildren: 0.08,
         duration: 0.5
       }
     }
   };
 
   const imageReveal = {
-    hidden: { scale: 0.9, opacity: 0 },
+    hidden: { 
+      scale: 0.9, 
+      opacity: 0
+    },
     visible: { 
       scale: 1, 
       opacity: 1,
       transition: { 
         type: "spring",
-        damping: 15,
+        damping: 25,
         stiffness: 80,
         duration: 0.8, 
         ease: [0.6, 0.01, -0.05, 0.95] 
@@ -48,10 +71,65 @@ const AboutUs = () => {
     }
   };
 
+  const scaleOnHover = {
+    hover: {
+      scale: 1.02,
+      y: -3,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 300
+      }
+    }
+  };
+
+  // Enhanced stats data with more detailed information
+  const statsData = [
+    { 
+      number: "10+", 
+      label: "Completed Projects", 
+      icon: "🚀",
+      description: "Successfully delivered solutions"
+    },
+    { 
+      number: "8+", 
+      label: "Happy Clients", 
+      icon: "😊",
+      description: "Satisfied customers worldwide"
+    },
+    { 
+      number: "10+", 
+      label: "Team Members", 
+      icon: "👥",
+      description: "Expert professionals"
+    },
+    { 
+      number: "6+", 
+      label: "Month Experience", 
+      icon: "⭐",
+      description: "Industry expertise"
+    }
+  ];
+
+  // All 6 capabilities
+  const capabilities = [
+    { name: "Artificial Intelligence", gradient: "from-blue-400 to-purple-500" },
+    { name: "Machine Learning Models", gradient: "from-purple-400 to-pink-500" },
+    { name: "Full-Stack Development", gradient: "from-green-400 to-blue-500" },
+    { name: "Mobile Applications", gradient: "from-yellow-400 to-orange-500" },
+    { name: "Enterprise Solutions", gradient: "from-red-400 to-purple-500" },
+    { name: "Data Science & Analytics", gradient: "from-cyan-400 to-blue-500" }
+  ];
+
   return (
-    <Section className="py-16 lg:py-24">
-      <div className="container mx-auto px-4">
-        {/* Section heading */}
+    <Section className="relative py-16 lg:py-20 overflow-hidden">
+      {/* Reduced background blur effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-n-8/30 via-transparent to-n-7/20"></div>
+      <div className="absolute top-1/4 -left-48 w-72 h-72 rounded-full bg-gradient-to-r from-[#1E50FF]/10 to-purple-500/10 blur-xl"></div>
+      <div className="absolute bottom-1/4 -right-48 w-72 h-72 rounded-full bg-gradient-to-l from-[#1E50FF]/10 to-cyan-500/10 blur-xl"></div>
+      
+      <div className="container relative z-10 mx-auto px-4">
+        {/* Enhanced section heading */}
         <motion.div 
           className="text-center mb-16"
           initial="hidden"
@@ -59,134 +137,193 @@ const AboutUs = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
+          <motion.div variants={fadeInUp} className="inline-block">
+            <span className="inline-block px-3 py-1.5 mb-3 text-xs font-semibold tracking-wider text-[#1E50FF] uppercase bg-[#1E50FF]/10 rounded-full border border-[#1E50FF]/20">
+              About Us
+            </span>
+          </motion.div>
+          
           <motion.h2 
-            className="h2 mb-4"
+            className="h2 mb-4 bg-gradient-to-r from-n-1 via-n-1 to-n-3 bg-clip-text text-transparent"
             variants={fadeInUp}
           >
-            About <span className="text-color-1">GigaNXT</span>
+            Innovation with{" "}
+            <span className="relative">
+              <span className="bg-gradient-to-r from-[#1E50FF] to-purple-400 bg-clip-text text-transparent">
+                GigaNXT
+              </span>
+              <motion.div 
+                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1E50FF] to-purple-400 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              />
+            </span>
           </motion.h2>
+          
           <motion.p 
-            className="body-1 max-w-3xl mx-auto text-n-3"
+            className="body-1 max-w-2xl mx-auto text-n-3 leading-relaxed"
             variants={fadeInUp}
           >
-            Empowering businesses with innovative technology solutions
+            Empowering businesses with smart technology and digital innovation.
           </motion.p>
         </motion.div>
 
-        {/* Content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Image */}
+        {/* Enhanced main content grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Image section with reduced blur */}
           <motion.div 
-            className="relative"
+            className="relative group"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={imageReveal}
           >
-            <div className="relative z-1 p-1 rounded-2xl bg-conic-gradient overflow-hidden">
-              <div className="bg-n-8 rounded-[1rem] overflow-hidden">
-                <img 
+            <motion.div 
+              className="relative z-10 p-1.5 rounded-2xl bg-gradient-to-r from-[#1E50FF]/15 via-purple-500/15 to-cyan-500/15"
+              whileHover="hover"
+              variants={scaleOnHover}
+            >
+              <div className="relative bg-n-8/90 rounded-xl overflow-hidden border border-n-1/10">
+                <motion.img 
                   src={about1} 
                   alt="GigaNXT Team" 
-                  className="w-full h-auto rounded-[0.9rem] hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.5 }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-n-8/40 via-transparent to-transparent"></div>
               </div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 z-0 w-64 h-64 rounded-full bg-[#1E50FF]/10 blur-3xl"></div>
+            </motion.div>
+            
+            {/* Reduced decorative blur effects */}
+            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-xl bg-gradient-to-br from-[#1E50FF]/20 to-purple-500/20"></div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/10 to-[#1E50FF]/10"></div>
           </motion.div>
 
-          {/* Right column - Text content */}
+          {/* Enhanced content section */}
           <motion.div
+            className="space-y-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
           >
-            <motion.h3 
-              className="h4 mb-6"
-              variants={fadeInUp}
-            >
-              Driving Digital Transformation
-            </motion.h3>
+            <motion.div variants={fadeInLeft}>
+              <h3 className="h4 mb-3 bg-gradient-to-r from-n-1 to-n-3 bg-clip-text text-transparent">
+                Digital Excellence
+              </h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-[#1E50FF] to-purple-400 rounded-full mb-4"></div>
+            </motion.div>
             
             <motion.p 
-              className="body-2 mb-6 text-n-3"
-              variants={fadeInUp}
+              className="body-2 text-n-2 leading-relaxed"
+              variants={fadeInLeft}
             >
-              At GigaNXT Solutions, we are passionate about leveraging cutting-edge technology to transform businesses. As a dynamic IT service company, we specialize in web development, app development, software solutions, and AI-driven innovations.
+              At <span className="font-semibold text-[#1E50FF]">GigaNXT Solutions</span>, we specialize in 
+              web development, mobile applications, and AI-driven technologies that drive business growth.
             </motion.p>
             
             <motion.p 
-              className="body-2 mb-8 text-n-3"
-              variants={fadeInUp}
+              className="text-sm text-n-3 leading-relaxed"
+              variants={fadeInLeft}
             >
-              Our mission is to empower businesses with scalable, efficient, and high-performance digital solutions tailored to their unique needs. We bring together creativity, innovation, and technical expertise to craft solutions that drive success.
+              Our mission is to deliver scalable, intelligent solutions tailored to your unique needs.
             </motion.p>
 
-            <motion.div variants={fadeInUp}>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">Web Development</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">App Development</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">Software Solutions</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">AI Innovation</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">Machine Learning Models</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
-                  <span className="text-n-1 font-medium">Data Science & Analysis</span>
-                </div>
+            {/* Enhanced capabilities grid - all 6 services */}
+            <motion.div variants={fadeInLeft} className="mt-6">
+              <h4 className="text-sm font-semibold mb-4 text-n-1">Core Services</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {capabilities.map((capability, index) => (
+                  <motion.div
+                    key={capability.name}
+                    className="group flex items-center gap-2.5 p-3 rounded-lg bg-n-7/40 border border-n-1/10 hover:border-[#1E50FF]/30 transition-all duration-300"
+                    whileHover={{ scale: 1.015, y: -1.5 }}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.08 }}
+                  >
+                    <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-r ${capability.gradient} group-hover:scale-110 transition-transform duration-300`}></div>
+                    <span className="text-n-1 font-medium text-xs group-hover:text-[#1E50FF] transition-colors duration-300">
+                      {capability.name}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
-            <motion.div variants={fadeInUp}>
-              <Button href="/about">
-                Learn More About Us
+            <motion.div variants={fadeInLeft} className="pt-3">
+              <Button 
+                href="/about" 
+                className="group relative overflow-hidden text-sm"
+              >
+                <span className="relative z-10">Learn More</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#1E50FF] to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  layoutId="button-bg"
+                />
               </Button>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Stats section */}
+        {/* Cleaner Achievement Cards Section */}
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 text-center"
+          className="relative mb-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInUp} className="p-6 rounded-xl bg-n-7/40 backdrop-blur border border-n-1/10">
-            <h4 className="h3 mb-1 text-color-1">10+</h4>
-            <p className="text-n-3">Projects Completed</p>
+          {/* Section heading for stats */}
+          <motion.div className="text-center mb-12" variants={fadeInUp}>
+            <h3 className="h4 mb-3 bg-gradient-to-r from-n-1 to-n-3 bg-clip-text text-transparent">
+              Our Achievements
+            </h3>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-[#1E50FF] to-purple-400 rounded-full mx-auto mb-4"></div>
+            <p className="text-sm text-n-3 max-w-lg mx-auto">
+              Numbers that reflect our commitment to excellence and client satisfaction
+            </p>
           </motion.div>
-          
-          <motion.div variants={fadeInUp} className="p-6 rounded-xl bg-n-7/40 backdrop-blur border border-n-1/10">
-            <h4 className="h3 mb-1 text-color-1">7+</h4>
-            <p className="text-n-3">Happy Clients</p>
-          </motion.div>
-          
-          <motion.div variants={fadeInUp} className="p-6 rounded-xl bg-n-7/40 backdrop-blur border border-n-1/10">
-            <h4 className="h3 mb-1 text-color-1">10+</h4>
-            <p className="text-n-3">Team Members</p>
-          </motion.div>
-          
-          <motion.div variants={fadeInUp} className="p-6 rounded-xl bg-n-7/40 backdrop-blur border border-n-1/10">
-            <h4 className="h3 mb-1 text-color-1">1+</h4>
-            <p className="text-n-3">Years Experience</p>
-          </motion.div>
+
+          {/* Clean stats cards without heavy blur effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1E50FF]/3 via-purple-500/3 to-cyan-500/3 rounded-3xl"></div>
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl border border-n-1/10 bg-n-8/30">
+            {statsData.map((stat, index) => (
+              <motion.div 
+                key={stat.label}
+                variants={fadeInUp}
+                className="group text-center p-6 rounded-2xl bg-n-7/40 border border-n-1/10 hover:border-[#1E50FF]/40 hover:bg-[#1E50FF]/5 transition-all duration-500 hover:shadow-lg hover:shadow-[#1E50FF]/10"
+                whileHover={{ scale: 1.03, y: -5 }}
+              >
+                <motion.div 
+                  className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ scale: 1.15, rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {stat.icon}
+                </motion.div>
+                
+                <motion.h4 
+                  className="h3 mb-2 bg-gradient-to-r from-[#1E50FF] to-purple-400 bg-clip-text text-transparent font-bold"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
+                >
+                  {stat.number}
+                </motion.h4>
+                
+                <p className="text-n-1 text-sm font-semibold mb-2 group-hover:text-[#1E50FF] transition-colors duration-300">
+                  {stat.label}
+                </p>
+                
+                <p className="text-n-3 text-xs leading-relaxed">
+                  {stat.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </Section>
