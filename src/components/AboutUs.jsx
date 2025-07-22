@@ -141,6 +141,14 @@ const AboutUs = () => {
                   <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
                   <span className="text-n-1 font-medium">AI Innovation</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
+                  <span className="text-n-1 font-medium">Machine Learning Models</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#1E50FF]"></div>
+                  <span className="text-n-1 font-medium">Data Science & Analysis</span>
+                </div>
               </div>
             </motion.div>
 
