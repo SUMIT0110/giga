@@ -2,58 +2,129 @@
   <!-- Background gradient -->
   <rect width="800" height="600" rx="20" fill="url(#paint0_linear)" />
   
-  <!-- Abstract tech elements -->
-  <circle cx="200" cy="300" r="80" fill="#1E50FF" opacity="0.2" />
-  <circle cx="600" cy="200" r="100" fill="#1E50FF" opacity="0.15" />
-  <circle cx="400" cy="450" r="120" fill="#1E50FF" opacity="0.1" />
+  <!-- Abstract geometric elements -->
+  <path d="M0 300C0 134.315 134.315 0 300 0H500C665.685 0 800 134.315 800 300V300C800 465.685 665.685 600 500 600H300C134.315 600 0 465.685 0 300V300Z" fill="url(#paint1_radial)" fill-opacity="0.2"/>
   
-  <!-- Grid pattern -->
-  <path d="M0 100H800" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M0 200H800" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M0 300H800" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M0 400H800" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M0 500H800" stroke="#FFFFFF" stroke-opacity="0.1" />
+  <!-- Decorative circles -->
+  <circle cx="200" cy="150" r="80" fill="#6366F1" opacity="0.2" />
+  <circle cx="650" cy="450" r="100" fill="#8B5CF6" opacity="0.15" />
+  <circle cx="400" cy="500" r="120" fill="#3B82F6" opacity="0.1" />
   
-  <path d="M100 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M200 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M300 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M400 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M500 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M600 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
-  <path d="M700 0V600" stroke="#FFFFFF" stroke-opacity="0.1" />
+  <!-- Hexagon grid pattern -->
+  <path d="M100 100L150 173.2L100 246.4L0 246.4L-50 173.2L0 100L100 100Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M250 100L300 173.2L250 246.4L150 246.4L100 173.2L150 100L250 100Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M400 100L450 173.2L400 246.4L300 246.4L250 173.2L300 100L400 100Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M550 100L600 173.2L550 246.4L450 246.4L400 173.2L450 100L550 100Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M700 100L750 173.2L700 246.4L600 246.4L550 173.2L600 100L700 100Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
   
-  <!-- Team silhouettes -->
-  <rect x="150" y="200" width="500" height="250" rx="10" fill="#0F1524" />
+  <path d="M175 246.4L225 319.6L175 392.8L75 392.8L25 319.6L75 246.4L175 246.4Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M325 246.4L375 319.6L325 392.8L225 392.8L175 319.6L225 246.4L325 246.4Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M475 246.4L525 319.6L475 392.8L375 392.8L325 319.6L375 246.4L475 246.4Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M625 246.4L675 319.6L625 392.8L525 392.8L475 319.6L525 246.4L625 246.4Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
   
+  <path d="M100 392.8L150 466L100 539.2L0 539.2L-50 466L0 392.8L100 392.8Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M250 392.8L300 466L250 539.2L150 539.2L100 466L150 392.8L250 392.8Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M400 392.8L450 466L400 539.2L300 539.2L250 466L300 392.8L400 392.8Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M550 392.8L600 466L550 539.2L450 539.2L400 466L450 392.8L550 392.8Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M700 392.8L750 466L700 539.2L600 539.2L550 466L600 392.8L700 392.8Z" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  
+  <!-- Team visualization - modern abstract style -->
+  <rect x="150" y="200" width="500" height="250" rx="20" fill="#0F1524" filter="url(#shadow)" />
+  
+  <!-- Modern team representation -->
   <!-- Person 1 -->
-  <rect x="200" y="250" width="80" height="150" rx="40" fill="#1E50FF" opacity="0.7" />
-  <circle cx="240" cy="230" r="30" fill="#1E50FF" opacity="0.7" />
+  <rect x="200" y="250" width="70" height="150" rx="35" fill="url(#person1_gradient)" />
+  <circle cx="235" cy="230" r="25" fill="url(#person1_gradient)" />
   
   <!-- Person 2 -->
-  <rect x="320" y="250" width="80" height="150" rx="40" fill="#1E50FF" opacity="0.8" />
-  <circle cx="360" cy="230" r="30" fill="#1E50FF" opacity="0.8" />
+  <rect x="310" y="250" width="70" height="150" rx="35" fill="url(#person2_gradient)" />
+  <circle cx="345" cy="230" r="25" fill="url(#person2_gradient)" />
   
   <!-- Person 3 -->
-  <rect x="440" y="250" width="80" height="150" rx="40" fill="#1E50FF" opacity="0.9" />
-  <circle cx="480" cy="230" r="30" fill="#1E50FF" opacity="0.9" />
+  <rect x="420" y="250" width="70" height="150" rx="35" fill="url(#person3_gradient)" />
+  <circle cx="455" cy="230" r="25" fill="url(#person3_gradient)" />
   
   <!-- Person 4 -->
-  <rect x="560" y="250" width="80" height="150" rx="40" fill="#1E50FF" />
-  <circle cx="600" cy="230" r="30" fill="#1E50FF" />
+  <rect x="530" y="250" width="70" height="150" rx="35" fill="url(#person4_gradient)" />
+  <circle cx="565" cy="230" r="25" fill="url(#person4_gradient)" />
   
-  <!-- Decorative elements -->
-  <circle cx="100" cy="100" r="20" fill="#1E50FF" opacity="0.5" />
-  <circle cx="700" cy="500" r="30" fill="#1E50FF" opacity="0.5" />
+  <!-- Connection lines between team members -->
+  <path d="M235 280L345 280" stroke="#4F46E5" stroke-width="2" stroke-dasharray="4 4" />
+  <path d="M345 280L455 280" stroke="#4F46E5" stroke-width="2" stroke-dasharray="4 4" />
+  <path d="M455 280L565 280" stroke="#4F46E5" stroke-width="2" stroke-dasharray="4 4" />
+  
+  <!-- Floating tech icons -->
+  <circle cx="150" cy="150" r="20" fill="#3B82F6" opacity="0.7" />
+  <path d="M140 150H160M150 140V160" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <circle cx="650" cy="150" r="20" fill="#8B5CF6" opacity="0.7" />
+  <path d="M640 150L660 150M650 140L650 160" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <circle cx="150" cy="450" r="20" fill="#EC4899" opacity="0.7" />
+  <path d="M142 442L158 458M158 442L142 458" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <circle cx="650" cy="450" r="20" fill="#10B981" opacity="0.7" />
+  <path d="M643 450H657M650 443V457" stroke="white" stroke-width="2" stroke-linecap="round" />
   
   <!-- Text placeholder -->
-  <rect x="250" y="450" width="300" height="20" rx="5" fill="#FFFFFF" opacity="0.7" />
-  <rect x="300" y="480" width="200" height="20" rx="5" fill="#FFFFFF" opacity="0.5" />
+  <rect x="250" y="450" width="300" height="15" rx="7.5" fill="#FFFFFF" opacity="0.7" />
+  <rect x="300" y="475" width="200" height="15" rx="7.5" fill="#FFFFFF" opacity="0.5" />
   
-  <!-- Gradient definitions -->
+  <!-- Glowing dots -->
+  <circle cx="100" cy="100" r="5" fill="#4F46E5">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="700" cy="500" r="5" fill="#8B5CF6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="100" r="5" fill="#EC4899">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="500" r="5" fill="#10B981">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Filters and gradients -->
   <defs>
+    <filter id="shadow" x="140" y="190" width="520" height="270" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.294 0 0 0 0 0.275 0 0 0 0 0.898 0 0 0 0.25 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    
     <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F1524" />
-      <stop offset="1" stop-color="#1A1F2F" />
+      <stop stop-color="#0F172A" />
+      <stop offset="1" stop-color="#1E293B" />
+    </linearGradient>
+    
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 300) rotate(90) scale(300 400)">
+      <stop stop-color="#4F46E5" />
+      <stop offset="1" stop-color="#4F46E5" stop-opacity="0" />
+    </radialGradient>
+    
+    <linearGradient id="person1_gradient" x1="200" y1="250" x2="270" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5" />
+      <stop offset="1" stop-color="#3B82F6" />
+    </linearGradient>
+    
+    <linearGradient id="person2_gradient" x1="310" y1="250" x2="380" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" />
+      <stop offset="1" stop-color="#6366F1" />
+    </linearGradient>
+    
+    <linearGradient id="person3_gradient" x1="420" y1="250" x2="490" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EC4899" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+    
+    <linearGradient id="person4_gradient" x1="530" y1="250" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981" />
+      <stop offset="1" stop-color="#3B82F6" />
     </linearGradient>
   </defs>
 </svg>

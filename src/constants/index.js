@@ -33,14 +33,12 @@ import {
   react,
   node,
 
-
   Figma,
   github,
   tensor,
   mathlab,
 
   llm,
-
 
   instagram,
   notification2,
@@ -95,11 +93,7 @@ import {
   project4,
   project5,
   project6,
-
-
 } from "../assets";
-
-
 
 export const Work = [
   {
@@ -138,9 +132,8 @@ export const Work = [
     techStack: ["Next.js", "Tailwind CSS"],
     projectLink: "https://cafe-bice.vercel.app/",
   },
-
   {
-    imgSrc: project5, // ✅ Correct usage
+    imgSrc: project5,
     title: "Bakery Website",
     client: "Sweet Delights",
     category: "E-Commerce",
@@ -158,9 +151,6 @@ export const Work = [
     projectLink: "https://www.shreesiddhivinayakayurveda.in/",
   },
 ];
-
-
-
 
 export const navigation = [
   {
@@ -188,7 +178,6 @@ export const navigation = [
     title: "Contact",
     url: "/contact",
   },
-
 ];
 
 export const heroIcons = [mongo, express, react, node];
@@ -365,6 +354,7 @@ export const pricing = [
     ],
   },
 ];
+
 export const benefits = [
   {
     id: "0",
@@ -375,15 +365,46 @@ export const benefits = [
     imageUrl: service6,
     head_1: "Web Development Process",
     process: [
-      { stage: "Requirement Gathering & Analysis", description: "Understand project scope, goals, and target audience." },
-      { stage: "Planning & Strategy", description: "Create a roadmap, define technology stack, and allocate resources." },
-      { stage: "Design Phase", description: "Create wireframes and prototypes, focus on UI/UX design." },
-      { stage: "Development Phase", description: "Build front-end (HTML, CSS, JS) and back-end (server, database)." },
-      { stage: "Testing & Quality Assurance", description: "Ensure functionality, performance, security, and cross-browser compatibility." },
-      { stage: "Deployment", description: "Deploy to live server, set up domain, and ensure mobile responsiveness." },
-      { stage: "SEO Optimization", description: "Optimize site for search engines with proper tags, URLs, and content." },
-      { stage: "Launch & Post-Launch Support", description: "Monitor performance, fix bugs, and gather user feedback." },
-      { stage: "Maintenance & Optimization", description: "Regular updates, security patches, and performance enhancements." }
+      {
+        stage: "Discovery & Requirements",
+        description: "Collaborate to define business goals, user needs, and technical scope."
+      },
+      {
+        stage: "Technical Planning & Stack Selection",
+        description: "Select frontend (React, Next.js), backend (Node.js, Django, etc.), database (PostgreSQL, MongoDB, etc.), and deployment platforms (Vercel, AWS, etc.). Design API contracts and architecture."
+      },
+      {
+        stage: "Repository Setup & CI/CD",
+        description: "Set up version control, CI/CD pipelines, and automated deployments for efficiency."
+      },
+      {
+        stage: "UI/UX Design & Prototyping",
+        description: "Design interactive prototypes and finalize UI/UX before development."
+      },
+      {
+        stage: "Frontend Development (React/Next.js)",
+        description: "Build responsive, component-based interfaces using React/Next.js. Integrate state management, authentication, and REST/GraphQL APIs."
+      },
+      {
+        stage: "Backend Development & Database",
+        description: "Develop backend services, APIs, and database integration. Implement authentication, authorization, and real-time features."
+      },
+      {
+        stage: "Testing & QA",
+        description: "Run automated tests (unit, integration, E2E), manual QA, cross-browser/device checks, and accessibility audits."
+      },
+      {
+        stage: "Deployment & Monitoring",
+        description: "Deploy frontend and backend, configure domains, SSL, CDN, and set up monitoring and analytics."
+      },
+      {
+        stage: "SEO & Performance Optimization",
+        description: "Optimize for search engines, improve Core Web Vitals, and fine-tune site speed and security."
+      },
+      {
+        stage: "Launch & Ongoing Support",
+        description: "Monitor uptime, gather user feedback, roll out updates, and provide maintenance and optimization."
+      }
     ]
   },
   {
@@ -396,15 +417,42 @@ export const benefits = [
     light: true,
     head_1: "App Development Process",
     process: [
-      { stage: "Requirement Gathering & Analysis", description: "Understand project scope, goals, and target audience." },
-      { stage: "Planning & Strategy", description: "Create a roadmap, define technology stack, and allocate resources." },
-      { stage: "Design Phase", description: "Create wireframes and prototypes, focus on UI/UX design." },
-      { stage: "Development Phase", description: "Build front-end (HTML, CSS, JS) and back-end (server, database)." },
-      { stage: "Testing & Quality Assurance", description: "Ensure functionality, performance, security, and cross-browser compatibility." },
-      { stage: "Deployment", description: "Deploy to live server, set up domain, and ensure mobile responsiveness." },
-      { stage: "SEO Optimization", description: "Optimize site for search engines with proper tags, URLs, and content." },
-      { stage: "Launch & Post-Launch Support", description: "Monitor performance, fix bugs, and gather user feedback." },
-      { stage: "Maintenance & Optimization", description: "Regular updates, security patches, and performance enhancements." }
+      {
+        stage: "Discovery & Requirements",
+        description: "Define business objectives, user personas, platform requirements (iOS, Android, Web), and key features."
+      },
+      {
+        stage: "Technical Planning & Stack Selection",
+        description: "Select cross-platform frameworks (React Native, Flutter), backend (Node.js, Firebase, Django, etc.), and databases (PostgreSQL, MongoDB, etc.). Design API contracts and architecture."
+      },
+      {
+        stage: "Repository Setup & CI/CD",
+        description: "Set up version control, automated testing, and CI/CD pipelines for seamless builds and deployments."
+      },
+      {
+        stage: "UI/UX Design & Prototyping",
+        description: "Create interactive prototypes (Figma, Adobe XD), refine user flows, and finalize UI/UX for both mobile and web."
+      },
+      {
+        stage: "Frontend App Development",
+        description: "Build cross-platform apps using React Native or Flutter. For web apps, use Next.js with responsive, app-like interfaces."
+      },
+      {
+        stage: "Backend Development & API Integration",
+        description: "Develop robust backend services, RESTful/GraphQL APIs, authentication, real-time features, and database integration."
+      },
+      {
+        stage: "Testing & Quality Assurance",
+        description: "Run automated tests (unit, integration, E2E), manual QA, device lab testing, and performance/security audits."
+      },
+      {
+        stage: "Deployment & App Store Submission",
+        description: "Deploy web apps (Vercel, AWS), publish mobile apps (App Store, Google Play), configure analytics, and set up monitoring."
+      },
+      {
+        stage: "Launch & Ongoing Support",
+        description: "Monitor app performance, gather user feedback, roll out updates, and provide maintenance, optimization, and security patches."
+      }
     ]
   },
   {
@@ -416,15 +464,46 @@ export const benefits = [
     imageUrl: service4,
     head_1: "Data Science & Analytics Process",
     process: [
-      { stage: "Problem Definition", description: "Identify business problems and determine how data can solve them." },
-      { stage: "Data Collection", description: "Gather data from various sources like databases, APIs, and surveys." },
-      { stage: "Data Cleaning & Preprocessing", description: "Clean, filter, and preprocess raw data for analysis." },
-      { stage: "Exploratory Data Analysis (EDA)", description: "Analyze data patterns, trends, and outliers using statistical methods." },
-      { stage: "Model Building", description: "Use machine learning algorithms to build predictive models." },
-      { stage: "Model Evaluation", description: "Evaluate model performance using metrics like accuracy, precision, and recall." },
-      { stage: "Data Visualization", description: "Visualize data insights using graphs, charts, and dashboards for better understanding." },
-      { stage: "Deployment", description: "Deploy the model into production systems for real-time analysis or decision-making." },
-      { stage: "Monitoring & Maintenance", description: "Monitor model performance and retrain as necessary to ensure optimal performance." }
+      {
+        stage: "Business & Problem Definition",
+        description: "Collaborate with stakeholders to define objectives, key questions, and measurable success criteria."
+      },
+      {
+        stage: "Data Strategy & Infrastructure Setup",
+        description: "Plan data collection, storage, and governance. Choose cloud platforms (AWS, GCP, Azure), databases, and data lakes/warehouses."
+      },
+      {
+        stage: "Data Collection & Ingestion",
+        description: "Collect and ingest structured & unstructured data from databases, APIs, web scraping, IoT, and third-party sources."
+      },
+      {
+        stage: "Data Cleaning, Preprocessing & Feature Engineering",
+        description: "Clean, transform, and engineer features. Handle missing data, outliers, and ensure GDPR/legal compliance."
+      },
+      {
+        stage: "Exploratory Data Analysis (EDA) & Visualization",
+        description: "Perform statistical analysis, uncover patterns, and create interactive visualizations (Dash, Tableau, Power BI)."
+      },
+      {
+        stage: "Model Development & AI/ML Pipelines",
+        description: "Build, train, and validate AI/ML models (Python, TensorFlow, PyTorch, scikit-learn). Implement pipelines for automation and reproducibility."
+      },
+      {
+        stage: "Model Evaluation & Interpretability",
+        description: "Evaluate models using business and technical metrics. Apply explainability techniques (SHAP, LIME) and ensure fairness, ethics, and privacy."
+      },
+      {
+        stage: "Deployment & MLOps",
+        description: "Containerize models (Docker), deploy as APIs or edge solutions. Set up MLOps for monitoring, logging, and CI/CD."
+      },
+      {
+        stage: "Integration & Business Intelligence",
+        description: "Embed insights into dashboards, reports, and decision systems. Enable real-time analytics and automated alerts."
+      },
+      {
+        stage: "Monitoring, Maintenance & Continuous Learning",
+        description: "Monitor model drift, data quality, and business impact. Retrain models and refine strategies based on feedback."
+      }
     ]
   },
   {
@@ -435,15 +514,48 @@ export const benefits = [
     iconUrl: benefitImage9,
     imageUrl: service9,
     light: true,
-    head_1: "AI & Machine Learning Process",
+    head_1: "AI & Machine Learning Solutions Process",
     process: [
-      { stage: "Problem Identification", description: "Identify business problems that AI/ML can solve." },
-      { stage: "Data Collection", description: "Gather and prepare data for training AI models." },
-      { stage: "Model Selection & Training", description: "Choose the right machine learning model and train it on the data." },
-      { stage: "Model Evaluation", description: "Evaluate model performance using various metrics like precision, recall, and F1 score." },
-      { stage: "Deployment", description: "Deploy the trained model into production for real-time predictions." },
-      { stage: "Monitoring & Optimization", description: "Monitor the performance of the deployed model and optimize it for better results." },
-      { stage: "Continuous Learning", description: "Implement feedback loops and retrain the model with new data to improve accuracy." }
+      {
+        stage: "Business Problem & Use Case Definition",
+        description: "Work with stakeholders to identify high-impact opportunities, define success metrics, and ensure alignment with business goals."
+      },
+      {
+        stage: "Data Strategy & Infrastructure",
+        description: "Plan data acquisition, storage, and governance. Select cloud platforms (AWS, GCP, Azure), data lakes, and ensure privacy/compliance."
+      },
+      {
+        stage: "Data Collection, Preparation & Feature Engineering",
+        description: "Ingest and clean data from multiple sources. Engineer features, handle imbalanced data, and ensure dataset representativeness."
+      },
+      {
+        stage: "Exploratory Data Analysis (EDA) & Insights",
+        description: "Analyze data distributions, correlations, and patterns. Visualize insights using modern BI tools (Tableau, Power BI, Dash)."
+      },
+      {
+        stage: "Model Development, Training & Validation",
+        description: "Select and train models (Python, PyTorch, TensorFlow, scikit-learn). Validate using cross-validation, and tune hyperparameters for optimal performance."
+      },
+      {
+        stage: "Model Evaluation, Explainability & Fairness",
+        description: "Assess models using business and technical metrics. Apply explainability techniques (SHAP, LIME) and audit for fairness, bias, and ethical compliance."
+      },
+      {
+        stage: "MLOps & Model Deployment",
+        description: "Containerize models (Docker), deploy as scalable APIs or embedded solutions. Integrate CI/CD, monitoring, and logging for robust production use."
+      },
+      {
+        stage: "Integration with Business Systems",
+        description: "Embed AI predictions into apps, workflows, and decision systems. Enable real-time and batch processing as needed."
+      },
+      {
+        stage: "Monitoring, Drift Detection & Optimization",
+        description: "Continuously monitor model performance, data drift, and business impact. Trigger retraining and updates as conditions change."
+      },
+      {
+        stage: "Continuous Improvement & Feedback Loops",
+        description: "Gather user and system feedback. Iterate on models, data, and processes to drive ongoing accuracy, relevance, and value."
+      }
     ]
   },
   {
@@ -453,15 +565,44 @@ export const benefits = [
     backgroundUrl: benefitCard5,
     iconUrl: benefitImage10,
     imageUrl: service8,
-    head_1: "Chatbot Development Process",
+    head_1: "Chatbot & Virtual Assistant Development Process",
     process: [
-      { stage: "Requirement Analysis", description: "Identify the needs and goals of the chatbot or virtual assistant." },
-      { stage: "Designing Conversations", description: "Design the conversational flow and user intents for interaction." },
-      { stage: "Platform Selection", description: "Choose the right platform and tools to build the chatbot (e.g., Messenger, WhatsApp)." },
-      { stage: "Development", description: "Develop the chatbot with natural language processing (NLP) capabilities." },
-      { stage: "Testing", description: "Test the chatbot for accuracy, response time, and handling diverse inputs." },
-      { stage: "Deployment", description: "Deploy the chatbot across channels (e.g., websites, apps, social media)." },
-      { stage: "Monitoring & Optimization", description: "Monitor chatbot performance and improve with user feedback and analytics." }
+      {
+        stage: "Business & User Needs Analysis",
+        description: "Define objectives, use cases, target users, and key performance indicators (KPIs) in collaboration with stakeholders."
+      },
+      {
+        stage: "Conversation Design & UX Strategy",
+        description: "Map user journeys, design intuitive dialog flows, and plan for voice/text interfaces. Incorporate accessibility and localization."
+      },
+      {
+        stage: "Platform & Technology Selection",
+        description: "Choose a modern stack: LLM providers (OpenAI, Anthropic, Gemini), NLP platforms (Dialogflow, Rasa), and omnichannel integration (WhatsApp, Messenger, Web, Apps, IVR)."
+      },
+      {
+        stage: "Knowledge Base & Integration Planning",
+        description: "Ingest and structure FAQ, product catalogs, documents, and APIs. Plan integrations with CRM, ERP, and backend systems for live data access."
+      },
+      {
+        stage: "Development & AI Model Fine-Tuning",
+        description: "Build, train, and fine-tune conversational models with advanced NLP/NLU. Implement retrieval-augmented generation (RAG), intent recognition, and context handling."
+      },
+      {
+        stage: "Testing & Quality Assurance",
+        description: "Conduct scenario testing, edge-case analysis, multi-language validation, and security/privacy audits. Test across devices and channels."
+      },
+      {
+        stage: "Deployment & Scalability",
+        description: "Deploy to production with CI/CD. Scale across channels—web, mobile app, social media, contact centers—ensuring high availability and performance."
+      },
+      {
+        stage: "Analytics, Monitoring & Optimization",
+        description: "Track conversation analytics, user satisfaction, escalation rates, and business outcomes. Use AI-driven insights for continuous tuning and personalization."
+      },
+      {
+        stage: "Feedback Loop & Continuous Learning",
+        description: "Gather user feedback, detect drift/issues, retrain models, and expand knowledge base. Adapt to new intents, languages, and business changes."
+      }
     ]
   },
   {
@@ -473,19 +614,49 @@ export const benefits = [
     imageUrl: service7,
     head_1: "Digital Marketing Process",
     process: [
-      { stage: "Market Research", description: "Identify target audience, competitors, and industry trends." },
-      { stage: "SEO Strategy", description: "Develop an SEO strategy to improve organic traffic and search engine rankings." },
-      { stage: "Content Creation", description: "Create engaging and valuable content for blogs, social media, and ads." },
-      { stage: "Social Media Marketing", description: "Promote brand through social media platforms, build engagement, and foster community." },
-      { stage: "Paid Advertising", description: "Run targeted paid ads on platforms like Google, Facebook, and Instagram." },
-      { stage: "Analytics & Reporting", description: "Track performance through analytics tools, adjust strategies based on data." },
-      { stage: "Continuous Improvement", description: "Refine marketing strategies based on feedback and performance metrics." }
+      {
+        stage: "Market & Audience Intelligence",
+        description: "Conduct deep market research, audience segmentation, competitor analysis, and trend forecasting using AI-powered tools."
+      },
+      {
+        stage: "Integrated Strategy Development",
+        description: "Define clear KPIs, omnichannel mix (SEO, social, paid, email, influencer), and allocate budget/resources for maximum impact."
+      },
+      {
+        stage: "Brand Storytelling & Content Strategy",
+        description: "Develop compelling brand narratives, content calendars, and creative assets (blogs, videos, interactive content) tailored for each channel."
+      },
+      {
+        stage: "SEO & Technical Optimization",
+        description: "Implement on-page and off-page SEO, optimize for Core Web Vitals, local SEO, and voice search. Ensure technical SEO health."
+      },
+      {
+        stage: "Social Media & Community Engagement",
+        description: "Launch targeted campaigns, foster communities, and leverage user-generated content. Utilize platform-specific features (Reels, Stories, Spaces)."
+      },
+      {
+        stage: "Paid Media & Performance Marketing",
+        description: "Run hyper-targeted ads (Google, Meta, TikTok, LinkedIn) using AI-driven bidding, audience modeling, and creative optimization."
+      },
+      {
+        stage: "Conversion Rate Optimization (CRO)",
+        description: "A/B test landing pages, CTAs, and user journeys. Implement personalization and AI-driven recommendations to maximize conversions."
+      },
+      {
+        stage: "Analytics, Attribution & Reporting",
+        description: "Track multi-touch attribution, ROI, and customer journeys with advanced analytics (Google Analytics 4, Meta, Mixpanel). Deliver transparent, actionable reports."
+      },
+      {
+        stage: "Privacy & Compliance",
+        description: "Ensure GDPR, CCPA, and platform compliance. Build trust with transparent data practices and consent management."
+      },
+      {
+        stage: "Continuous Optimization & Innovation",
+        description: "Iterate based on real-time data, experiment with emerging channels (AI chatbots, AR/VR, shoppable content), and adopt new technologies for sustained growth."
+      }
     ]
-  },
+  }
 ];
-
-
-
 
 export const testimonials = [
   {
@@ -538,35 +709,24 @@ export const testimonials = [
   },
 ];
 
-
-
-
-
 export const faqs_items = [
   {
     question: "What services does your startup offer?",
     answer: "We specialize in web development, app development (both iOS and Android), and AI integration to create innovative, scalable, and user-friendly solutions tailored to your business needs.",
-
   },
   {
     question: "How can AI integration benefit my business?",
     answer: "AI can automate repetitive tasks, enhance decision-making with data-driven insights, improve customer experiences with chatbots, and personalize services to boost engagement and efficiency.",
-
   },
   {
     question: "Do you work with startups or established businesses?",
     answer: "We work with businesses of all sizes, from startups looking to build their first platform to established enterprises aiming to enhance their digital capabilities.",
-
   },
   {
     question: "How long does it take to develop a web or mobile application?",
     answer: "The timeline depends on the project's complexity and requirements. A basic application may take 4–8 weeks, while more complex solutions can take several months.",
-
   },
 ];
-
-
-
 
 export const footerLinks = [
   {
@@ -716,7 +876,7 @@ export const privacyData = [
   },
   {
     title: "Contact Us",
-    content: "If you have any questions about this Privacy Policy, please contact us at contact@giganxt.com."
+    content: "If you have any questions about this Privacy Policy, please contact us at [contact@giganxt.com](mailto:contact@giganxt.com)."
   }
 ];
 
@@ -775,11 +935,6 @@ export const termsData = [
   },
   {
     title: "Contact Us",
-    content: "If you have any questions about these Terms, please contact us at contact@giganxt.com."
+    content: "If you have any questions about these Terms, please contact us at [contact@giganxt.com](mailto:contact@giganxt.com)."
   }
 ];
-
-
-
-
-
