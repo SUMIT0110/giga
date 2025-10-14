@@ -1,0 +1,5 @@
+/* /index.html 200 
+# Redirect all secondary domains to primary domain (301 Permanent)
+https://giganxt.me/* https://www.giganxt.com/:splat 301!
+https://www.giganxt.me/* https://www.giganxt.com/:splat 301!
+
