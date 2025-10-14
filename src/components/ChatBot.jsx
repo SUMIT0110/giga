@@ -316,9 +316,28 @@ const ChatBot = () => {
         const response = await generateGeminiResponse(geminiConfig, messageText, messages);
         
         if (response.error) {
-          setError(`AI Error: ${response.error}`);
-          setIsTyping(false);
-          return;
+          // Handle quota exceeded errors specially
+          if (response.quotaExceeded) {
+            setError(`${response.error} Our AI assistant will be back shortly.`);
+            // Automatically fall back to local response after a brief delay
+            setTimeout(() => {
+              setError('');
+              const localResponse = generateLocalResponse(messageText);
+              const formattedResponse = processMessageForDisplay(localResponse, true);
+              setMessages(prevMessages => [...prevMessages, {
+                text: formattedResponse + '\n\n*Note: This response was generated locally while our AI service recovers.*',
+                sender: "bot",
+                timestamp: new Date().toISOString(),
+                category
+              }]);
+              setIsTyping(false);
+            }, 2000);
+            return;
+          } else {
+            setError(`AI Error: ${response.error}`);
+            setIsTyping(false);
+            return;
+          }
         }
         
         // Add typing animation delay based on response length

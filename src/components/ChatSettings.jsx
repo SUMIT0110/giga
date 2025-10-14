@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { loadConfig, updateConfig } from '../utils/config';
+import { getApiUsageStats, resetRateLimit } from '../utils/geminiApi';
 
 // Component for chat settings panel
 const ChatSettings = ({ isOpen, onClose }) => {
@@ -9,6 +10,7 @@ const ChatSettings = ({ isOpen, onClose }) => {
   const [maxTokens, setMaxTokens] = useState(1024);
   const [isSaved, setIsSaved] = useState(false);
   const [error, setError] = useState('');
+  const [usageStats, setUsageStats] = useState(null);
 
   // Load current settings when component mounts or when isOpen changes
   useEffect(() => {
@@ -19,8 +21,32 @@ const ChatSettings = ({ isOpen, onClose }) => {
       setMaxTokens(config.gemini.maxOutputTokens || 1024);
       setIsSaved(false);
       setError('');
+      
+      // Load usage statistics
+      try {
+        const stats = getApiUsageStats();
+        setUsageStats(stats);
+      } catch (err) {
+        console.error('Error loading usage stats:', err);
+      }
     }
   }, [isOpen]);
+
+  // Function to refresh usage statistics
+  const refreshUsageStats = () => {
+    try {
+      const stats = getApiUsageStats();
+      setUsageStats(stats);
+    } catch (err) {
+      console.error('Error refreshing usage stats:', err);
+    }
+  };
+
+  // Function to handle rate limit reset
+  const handleResetRateLimit = () => {
+    resetRateLimit();
+    refreshUsageStats();
+  };
 
   // Handle saving settings
   const handleSave = () => {
@@ -127,11 +153,66 @@ const ChatSettings = ({ isOpen, onClose }) => {
             type="range"
             min="256"
             max="2048"
-            step="128"
+            step="256"
             value={maxTokens}
             onChange={(e) => setMaxTokens(e.target.value)}
             className="w-full"
           />
+          <div className="flex justify-between text-xs text-n-3">
+            <span>Shorter</span>
+            <span>Longer</span>
+          </div>
+        </div>
+
+        {/* API Usage Statistics */}
+        <div className="mb-4 p-3 bg-n-7 rounded-lg border border-n-6">
+          <div className="flex justify-between items-center mb-2">
+            <h4 className="text-n-2 text-sm font-medium">API Usage Statistics</h4>
+            <button
+              onClick={refreshUsageStats}
+              className="text-xs text-color-1 hover:text-color-2 transition-colors"
+            >
+              Refresh
+            </button>
+          </div>
+          
+          {usageStats ? (
+            <div className="space-y-2 text-xs">
+              <div className="flex justify-between">
+                <span className="text-n-3">Requests (last minute):</span>
+                <span className={`${usageStats.requestsLastMinute >= usageStats.maxRequestsPerMinute ? 'text-red-400' : 'text-green-400'}`}>
+                  {usageStats.requestsLastMinute}/{usageStats.maxRequestsPerMinute}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-n-3">Requests (last hour):</span>
+                <span className="text-n-2">{usageStats.requestsLastHour}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-n-3">Can make request:</span>
+                <span className={`${usageStats.canMakeRequest ? 'text-green-400' : 'text-red-400'}`}>
+                  {usageStats.canMakeRequest ? 'Yes' : 'No'}
+                </span>
+              </div>
+              {!usageStats.canMakeRequest && (
+                <div className="flex justify-between">
+                  <span className="text-n-3">Next request in:</span>
+                  <span className="text-yellow-400">{Math.ceil(usageStats.timeUntilNextRequest / 1000)}s</span>
+                </div>
+              )}
+              
+              {usageStats.requestsLastMinute > 0 && (
+                <button
+                  onClick={handleResetRateLimit}
+                  className="w-full mt-2 px-3 py-1 bg-yellow-600 hover:bg-yellow-700 text-white text-xs rounded transition-colors"
+                >
+                  Reset Rate Limit (for testing)
+                </button>
+              )}
+            </div>
+          ) : (
+            <p className="text-xs text-n-3">Loading usage statistics...</p>
+          )}
         </div>
         
         <button 
