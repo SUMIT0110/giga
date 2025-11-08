@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Section from "./Section";
 import Button from "./Button";
+import Heading from "./Heading";
 import { about1, about2 } from "../assets";
 
 const AboutUs = () => {
@@ -83,6 +84,27 @@ const AboutUs = () => {
     }
   };
 
+  // Curve animation variants - same as Hero page
+  const curveReveal = {
+    hidden: { 
+      scaleX: 0,
+      opacity: 0,
+      transformOrigin: "left center"
+    },
+    visible: { 
+      scaleX: 1,
+      opacity: 1,
+      transition: { 
+        type: "spring",
+        damping: 25,
+        stiffness: 80,
+        duration: 0.8,
+        delay: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      } 
+    }
+  };
+
   // Enhanced stats data with more detailed information
   const statsData = [
     { 
@@ -129,45 +151,62 @@ const AboutUs = () => {
       <div className="absolute bottom-1/4 -right-48 w-72 h-72 rounded-full bg-gradient-to-l from-[#1E50FF]/10 to-cyan-500/10 blur-xl"></div>
       
       <div className="container relative z-10 mx-auto px-4">
-        {/* Enhanced section heading */}
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="inline-block">
-            <span className="inline-block px-3 py-1.5 mb-3 text-xs font-semibold tracking-wider text-[#1E50FF] uppercase bg-[#1E50FF]/10 rounded-full border border-[#1E50FF]/20">
-              About Us
-            </span>
-          </motion.div>
-          
-          <motion.h2 
-            className="h2 mb-4 bg-gradient-to-r from-n-1 via-n-1 to-n-3 bg-clip-text text-transparent"
-            variants={fadeInUp}
-          >
-            Innovation with{" "}
-            <span className="relative">
-              <span className="bg-gradient-to-r from-[#1E50FF] to-purple-400 bg-clip-text text-transparent">
-                GigaNXT
+        {/* UPDATED SECTION HEADING - PROPER LIKE TESTIMONIALS */}
+        <div className="container mb-16">
+          <Heading
+            tag="About Us"
+            title={
+              <span className="inline-block relative">
+                Innovation with{" "}
+                <span className="inline-block relative">
+                  {/* GigaNXT with same gradient text effect as Hero page */}
+                  <motion.span 
+                    className="bg-gradient-to-r from-[#1E50FF] to-purple-400 bg-clip-text text-transparent"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    GigaNXT
+                  </motion.span>
+                  {" "}
+                  {/* Curved underline same as Hero page */}
+                  <motion.div 
+                    className="absolute top-full left-0 w-full mt-2"
+                    variants={curveReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                  >
+                    <svg 
+                      width="100%" 
+                      height="12" 
+                      viewBox="0 0 400 12" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      preserveAspectRatio="none"
+                    >
+                      <path 
+                        d="M2 10 C100 2, 300 2, 398 10" 
+                        stroke="url(#gradient)" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                        fill="none"
+                      />
+                      <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1E50FF" />
+                          <stop offset="100%" stopColor="#A855F7" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </motion.div>
+                </span>
               </span>
-              <motion.div 
-                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1E50FF] to-purple-400 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              />
-            </span>
-          </motion.h2>
-          
-          <motion.p 
-            className="body-1 max-w-2xl mx-auto text-n-3 leading-relaxed"
-            variants={fadeInUp}
-          >
-            Empowering businesses with smart technology and digital innovation.
-          </motion.p>
-        </motion.div>
+            }
+            text="Empowering businesses with smart technology and digital innovation. Our mission is to deliver scalable, intelligent solutions tailored to your unique needs."
+          />
+        </div>
 
         {/* Enhanced main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
@@ -228,7 +267,9 @@ const AboutUs = () => {
               className="text-sm text-n-3 leading-relaxed"
               variants={fadeInLeft}
             >
-              Our mission is to deliver scalable, intelligent solutions tailored to your unique needs.
+              Our team of experts is dedicated to creating innovative solutions that transform ideas into 
+              powerful digital experiences. We combine cutting-edge technology with creative design to 
+              deliver exceptional results.
             </motion.p>
 
             {/* Enhanced capabilities grid - all 6 services */}
@@ -253,16 +294,14 @@ const AboutUs = () => {
               </div>
             </motion.div>
 
+            {/* Updated Button - Same style as Hero page */}
             <motion.div variants={fadeInLeft} className="pt-3">
               <Button 
                 href="/about" 
-                className="group relative overflow-hidden text-sm"
+                white
+                className="group relative overflow-hidden"
               >
                 <span className="relative z-10">Learn More</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#1E50FF] to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  layoutId="button-bg"
-                />
               </Button>
             </motion.div>
           </motion.div>

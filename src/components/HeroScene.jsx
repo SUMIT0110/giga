@@ -74,11 +74,6 @@ const HeroScene = () => {
     }
   };
 
-  // Responsive SVG grid parameters
-  const gridSize = isMobile ? 20 : 40;
-  const strokeWidth = isMobile ? 1 : 0.5;
-  const stopOpacity = isMobile ? 0.5 : 0.3;
-
   return (
     <div className="relative w-full max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24 overflow-visible">
       <motion.div 
@@ -87,14 +82,20 @@ const HeroScene = () => {
         animate={controls}
         variants={containerVariants}
       >
-        {/* Modern SVG Background */}
+        {/* Modern SVG Background - Fixed for mobile */}
         <motion.div 
           className="absolute inset-0 w-full h-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <svg 
+            width="100%" 
+            height="100%" 
+            viewBox="0 0 1000 1000" 
+            preserveAspectRatio="xMidYMid slice"
+            style={{ overflow: 'hidden' }}
+          >
             <defs>
               <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.2" />
@@ -107,19 +108,15 @@ const HeroScene = () => {
                 <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
               </radialGradient>
               
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="20" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-              
-              <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <circle cx="20" cy="20" r="1" fill="rgba(255, 255, 255, 0.3)" />
-              </pattern>
-              
               <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.4" />
                 <stop offset="100%" stopColor="#EC4899" stopOpacity="0.4" />
               </linearGradient>
+
+              {/* Simplified pattern for mobile */}
+              <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <circle cx="20" cy="20" r="1" fill="rgba(255, 255, 255, 0.3)" />
+              </pattern>
             </defs>
             
             {/* Base background */}
@@ -128,36 +125,40 @@ const HeroScene = () => {
             {/* Dot pattern overlay */}
             <rect width="100%" height="100%" fill="url(#dots)" />
             
-            {/* Decorative lines */}
-            <path d="M0,250 Q500,150 1000,350" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
-            <path d="M0,650 Q500,750 1000,550" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
+            {/* Simplified decorative lines for mobile */}
+            {!isMobile && (
+              <>
+                <path d="M0,250 Q500,150 1000,350" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
+                <path d="M0,650 Q500,750 1000,550" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5" />
+              </>
+            )}
             
-            {/* Glowing circles */}
-            <circle cx="200" cy="200" r="100" fill="url(#glow-gradient)" opacity="0.6" />
-            <circle cx="800" cy="800" r="150" fill="url(#glow-gradient)" opacity="0.4" />
+            {/* Glowing circles - positioned better for mobile */}
+            <circle cx="200" cy="200" r={isMobile ? "60" : "100"} fill="url(#glow-gradient)" opacity="0.6" />
+            <circle cx="800" cy="800" r={isMobile ? "90" : "150"} fill="url(#glow-gradient)" opacity="0.4" />
             
-            {/* Subtle grid lines - more professional than the previous grid */}
-            <g opacity="0.15">
-              {Array.from({ length: 10 }).map((_, i) => (
+            {/* Simplified grid for mobile */}
+            <g opacity={isMobile ? "0.1" : "0.15"}>
+              {Array.from({ length: isMobile ? 5 : 10 }).map((_, i) => (
                 <line 
                   key={`h-${i}`}
                   x1="0" 
-                  y1={i * 100} 
+                  y1={i * (isMobile ? 200 : 100)} 
                   x2="1000" 
-                  y2={i * 100} 
+                  y2={i * (isMobile ? 200 : 100)} 
                   stroke="#fff" 
-                  strokeWidth="0.5" 
+                  strokeWidth={isMobile ? "1" : "0.5"} 
                 />
               ))}
-              {Array.from({ length: 10 }).map((_, i) => (
+              {Array.from({ length: isMobile ? 5 : 10 }).map((_, i) => (
                 <line 
                   key={`v-${i}`}
-                  x1={i * 100} 
+                  x1={i * (isMobile ? 200 : 100)} 
                   y1="0" 
-                  x2={i * 100} 
+                  x2={i * (isMobile ? 200 : 100)} 
                   y2="1000" 
                   stroke="#fff" 
-                  strokeWidth="0.5" 
+                  strokeWidth={isMobile ? "1" : "0.5"} 
                 />
               ))}
             </g>
@@ -186,7 +187,7 @@ const HeroScene = () => {
           animate="animate"
         />
 
-        {/* GIGANXT Logo - improved centering for mobile and desktop */}
+        {/* GIGANXT Logo */}
         <motion.div 
           className={`absolute top-4 z-30 flex items-center justify-center ${
             isMobile 
@@ -195,7 +196,6 @@ const HeroScene = () => {
           }`}
           variants={itemVariants}
         >
-          {/* Content */}
           <div className={`backdrop-blur-md bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/5 rounded-md ${
             isMobile 
               ? 'px-4 py-2 max-w-[280px] mx-auto' 
@@ -222,14 +222,12 @@ const HeroScene = () => {
           </div>
         </motion.div>
 
-        {/* Central Element - Modern Geometric Design */}
+        {/* Central Element */}
         <motion.div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-40 md:w-80 md:h-56 flex items-center justify-center"
           variants={itemVariants}
         >
-          {/* Background Elements */}
           <div className="absolute w-full h-full">
-            {/* Decorative geometric shapes - reduced size to avoid overlap */}
             <motion.div 
               className="absolute -top-6 -left-6 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 backdrop-blur-sm rounded-md rotate-12"
               animate={{
@@ -255,34 +253,9 @@ const HeroScene = () => {
                 delay: 0.5
               }}
             />
-            <motion.div 
-              className="absolute top-1/2 -right-4 w-8 h-8 md:w-12 md:h-12 border border-indigo-500/30 rounded-full"
-              animate={{
-                scale: [1, 1.2, 1]
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            />
-            <motion.div 
-              className="absolute top-1/4 -left-3 w-6 h-6 md:w-10 md:h-10 border border-blue-500/30 rounded-full"
-              animate={{
-                scale: [1, 1.2, 1]
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: 1
-              }}
-            />
           </div>
           
-          {/* Main Content Container - Empty for mobile to avoid conflict with centered logo */}
           <div className="relative z-0 w-full h-full flex flex-col justify-center items-center">
-            {/* Horizontal line */}
             <motion.div 
               className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
               animate={{
@@ -295,7 +268,6 @@ const HeroScene = () => {
               }}
             />
             
-            {/* Bottom horizontal line */}
             <motion.div 
               className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"
               animate={{
@@ -331,7 +303,6 @@ const HeroScene = () => {
             <div className="mb-1">// Web Development Solutions</div>
             <div className="mb-1">// Mobile App Development</div>
             <div className="mb-1">// UI/UX Design Services</div>
-            <div className="mb-1">// User Experience Optimization</div>
             <div className="mb-1">// Enterprise Software Solutions</div>
             <div className="mb-1">// Advanced AI Integration</div>
             <div className="mb-1">// Machine Learning Models</div>
@@ -341,7 +312,7 @@ const HeroScene = () => {
           </motion.div>
         </motion.div>
         
-        {/* Animated Code Lines - Repositioned to avoid overlapping */}
+        {/* Animated Code Lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -left-10 top-1/3 w-1/4 h-px bg-gradient-to-r from-transparent via-n-1/10 to-transparent">
             <motion.div 
@@ -357,39 +328,12 @@ const HeroScene = () => {
               }}
             />
           </div>
-          <div className="absolute -right-10 top-3/4 w-1/4 h-px bg-gradient-to-r from-transparent via-n-1/10 to-transparent">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-n-1/50 to-transparent"
-              animate={{
-                x: ['100%', '-100%'],
-              }}
-              transition={{
-                duration: 3,
-                ease: 'linear',
-                repeat: Infinity,
-                repeatDelay: 3
-              }}
-            />
-          </div>
-          <div className="absolute left-1/4 -bottom-10 h-1/4 w-px bg-gradient-to-b from-transparent via-n-1/10 to-transparent">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-b from-transparent via-n-1/50 to-transparent"
-              animate={{
-                y: ['-100%', '100%'],
-              }}
-              transition={{
-                duration: 3,
-                ease: 'linear',
-                repeat: Infinity,
-                repeatDelay: 1
-              }}
-            />
-          </div>
         </div>
 
-        {/* Tech Icons - Positioned Half In/Half Out of Container */}
-        {/* Left Side Icons */}
-        {/* Top Left - Web Dev */}
+        {/* Tech Icons with Proper Labels */}
+        
+        {/* Left Side - Development Services */}
+        {/* Web Development */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
             className="absolute -left-6 sm:-left-10 md:-left-20 top-[10%] md:top-[15%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
@@ -406,7 +350,7 @@ const HeroScene = () => {
           </motion.div>
         </ScrollParallax>
         
-        {/* Middle Left - App Development */}
+        {/* Mobile Development */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
             className="absolute -left-8 sm:-left-12 md:-left-24 top-[35%] md:top-[40%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
@@ -416,14 +360,14 @@ const HeroScene = () => {
           >
             <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-500/30 flex items-center justify-center flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                <path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm6 11a1 1 0 10-2 0 1 1 0 002 0z" />
               </svg>
             </div>
-            <span className="text-xs font-medium text-white truncate">App Development</span>
+            <span className="text-xs font-medium text-white truncate">Mobile Dev</span>
           </motion.div>
         </ScrollParallax>
         
-        {/* Bottom Left - UI/UX Design */}
+        {/* UI/UX Design */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
             className="absolute -left-6 sm:-left-10 md:-left-20 top-[60%] md:top-[65%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
@@ -440,8 +384,8 @@ const HeroScene = () => {
           </motion.div>
         </ScrollParallax>
 
-        {/* Right Side Icons */}
-        {/* Top Right - AI Solutions */}
+        {/* Right Side - AI & Data Services */}
+        {/* AI Solutions */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
             className="absolute -right-6 sm:-right-10 md:-right-20 top-[10%] md:top-[15%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
@@ -458,10 +402,10 @@ const HeroScene = () => {
           </motion.div>
         </ScrollParallax>
 
-        {/* Middle Right - ML Models */}
+        {/* Machine Learning */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
-            className="absolute -right-8 sm:-right-12 md:-right-24 top-[35%] md:top-[40%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
+            className="absolute -right-8 sm:-right-12 md:-right-24 top-[35%] md:top-[40%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.6, duration: 0.8 }}
@@ -476,20 +420,20 @@ const HeroScene = () => {
           </motion.div>
         </ScrollParallax>
         
-        {/* Bottom Right - User Experience */}
+        {/* Data Analytics */}
         <ScrollParallax isAbsolutelyPositioned>
           <motion.div 
-            className="absolute -right-6 sm:-right-10 md:-right-20 top-[60%] md:top-[65%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[130px] md:max-w-none z-20"
+            className="absolute -right-6 sm:-right-10 md:-right-20 top-[60%] md:top-[65%] px-2 md:px-3 py-1 md:py-2 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-xl flex items-center space-x-1 md:space-x-2 max-w-[110px] md:max-w-none z-20"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.7, duration: 0.8 }}
           >
             <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-orange-500/30 flex items-center justify-center flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-xs font-medium text-white truncate">User Experience</span>
+            <span className="text-xs font-medium text-white truncate">Data Analytics</span>
           </motion.div>
         </ScrollParallax>
 

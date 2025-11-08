@@ -22,7 +22,12 @@ const Benefits = () => {
   return (
     <Section id="Services">
       <div className="container relative z-1 mx-auto px-4">
-        <Heading className="md:max-w-md lg:max-w-2xl mx-auto text-center" title="Our Services" />
+        {/* Updated Heading with "Services" label */}
+        <Heading 
+          className="md:max-w-md lg:max-w-2xl mx-auto text-center" 
+          tag="Services"  // Added Services label
+          title="Our Services" 
+        />
 
         {/* Benefits Grid */}
         <div className="flex flex-wrap justify-center gap-10 mb-10">
@@ -90,4 +95,4 @@ const Benefits = () => {
   );
 };
 
-export default Benefits;
+export default Benefits;

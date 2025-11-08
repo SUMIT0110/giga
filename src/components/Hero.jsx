@@ -6,7 +6,6 @@ import { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import HeroScene from "./HeroScene";
 
-
 const Hero = () => {
   const parallaxRef = useRef(null);
   const controls = useAnimation();
@@ -16,18 +15,21 @@ const Hero = () => {
     controls.start("visible");
   }, [controls]);
   
-  // Animation variants
+  // Animation variants matching AboutUs page
   const fadeInUp = {
-    hidden: { opacity: 0, y: 80 },
+    hidden: { 
+      opacity: 0, 
+      y: 40
+    },
     visible: { 
       opacity: 1, 
-      y: 0, 
+      y: 0,
       transition: { 
         type: "spring", 
-        damping: 12, 
+        damping: 20, 
         stiffness: 100, 
-        duration: 0.8, 
-        ease: "easeOut" 
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       } 
     }
   };
@@ -38,53 +40,47 @@ const Hero = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.1,
-        staggerChildren: 0.3,
+        staggerChildren: 0.08,
         duration: 0.5
       }
     }
   };
-  
+
   const imageReveal = {
-    hidden: { scale: 0.8, opacity: 0, y: 40 },
+    hidden: { 
+      scale: 0.9, 
+      opacity: 0
+    },
     visible: { 
       scale: 1, 
-      opacity: 1, 
-      y: 0,
+      opacity: 1,
       transition: { 
         type: "spring",
-        damping: 15,
+        damping: 25,
         stiffness: 80,
-        duration: 1, 
+        duration: 0.8, 
         ease: [0.6, 0.01, -0.05, 0.95] 
       } 
     }
   };
-  
-  const iconFadeIn = {
-    hidden: { opacity: 0, scale: 0.6, y: 20 },
+
+  // Curve animation variants - appearing slowly with proper curve
+  const curveReveal = {
+    hidden: { 
+      scaleX: 0,
+      opacity: 0,
+      transformOrigin: "left center"
+    },
     visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
+      scaleX: 1,
+      opacity: 1,
       transition: { 
         type: "spring",
-        damping: 12,
-        stiffness: 200,
-        duration: 0.6 
-      } 
-    }
-  };
-  
-  // Removed floating animation as it was causing positioning issues
-  
-  const backgroundReveal = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 0.35,
-      transition: { 
-        duration: 1.5, 
-        ease: "easeOut", 
-        delay: 0.3 
+        damping: 25,
+        stiffness: 80,
+        duration: 0.8,
+        delay: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94]
       } 
     }
   };
@@ -110,16 +106,47 @@ const Hero = () => {
           >
             Empower Your &nbsp;Business&nbsp; With {` `}
             <span className="inline-block relative">
-              GIGANXT{" "}
-              <img
-                src={curve}
-                className="absolute top-full left-0 w-full xl:-mt-2"
-                width={624}
-                height={28}
-                alt="Curve"
-              />
+              {/* GIGANXT with same gradient text effect as AboutUs */}
+              <motion.span 
+                className="bg-gradient-to-r from-[#1E50FF] to-purple-400 bg-clip-text text-transparent"
+                variants={fadeInUp}
+              >
+                GIGANXT
+              </motion.span>
+              {" "}
+              {/* Proper curved line with SVG */}
+              <motion.div 
+                className="absolute top-full left-0 w-full xl:-mt-1"
+                variants={curveReveal}
+                initial="hidden"
+                animate="visible"
+              >
+                <svg 
+                  width="100%" 
+                  height="12" 
+                  viewBox="0 0 400 12" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                >
+                  <path 
+                    d="M2 10 C100 2, 300 2, 398 10" 
+                    stroke="url(#gradient)" 
+                    strokeWidth="3" 
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1E50FF" />
+                      <stop offset="100%" stopColor="#A855F7" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </motion.div>
             </span>
           </motion.h1>
+          
           <motion.p 
             className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8"
             variants={fadeInUp}
@@ -127,6 +154,7 @@ const Hero = () => {
             Innovating Web, App, Software, and AI Solutions to 
             Empower Businesses for the Digital Future.
           </motion.p>
+          
           <motion.div variants={fadeInUp}>
             <Button href="/contact" white>
               Contact Us
